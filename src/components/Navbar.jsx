@@ -1,22 +1,19 @@
 import { Link, NavLink, useLoaderData, useLocation, useNavigate } from "react-router-dom";
 // import { RiCoupon3Fill } from "react-icons/ri";
 import { useContext, useEffect, useState } from "react";
-// import { AuthProviderContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
-
+import { AuthProviderContext } from "../Provider/AuthProvider";
 
 
 const Navbar = () => {
-    // const { user, signOutUser,darkMode,setDarkMode } = useContext(AuthProviderContext);
-    const email = 'user@gmail.com';
-  const user = {email}
+    const { user, signOutUser } = useContext(AuthProviderContext);
+
     const location = useLocation();
     const [showTooltip, setShowTooltip] = useState(false);
     // const location = useLoaderData();
     const navigate = useNavigate();
     
 
-    
     const links = <>
 
         <li><NavLink to='/'
@@ -57,6 +54,13 @@ const Navbar = () => {
     </>
 
     const handleLogOut = () => {
+        signOutUser()
+        .then(() => {
+            navigate('/')
+        })
+        .catch((err) => {
+            const error = err.message;
+        })
       
     }
     return (

@@ -2,6 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
+import Registration from "../pages/Registration";
+import AuthLayout from "../Layout/AuthLayout";
+import Login from "../pages/Login";
 
 
 const router = createBrowserRouter([
@@ -30,6 +33,21 @@ const router = createBrowserRouter([
             path: "/featuredBlogs",
             element: <h2>Featured Blogs</h2> ,
           },
+          {
+            path: "auth",
+            element: <AuthLayout></AuthLayout>,
+            children: [
+                {
+                    path: "/auth/login",
+                    element: <Login></Login>,
+                },
+                {
+                    path: "/auth/register",
+                    element: <Registration></Registration>,
+                },
+               
+            ],
+        },
 
       ]
     },
