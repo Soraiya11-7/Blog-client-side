@@ -7,6 +7,7 @@ import AuthLayout from "../Layout/AuthLayout";
 import Login from "../pages/Login";
 import SecretRoutes from "./SecretRoutes";
 import AddBlog from "../pages/AddBlog";
+import AllBlogs from "../pages/AllBlogs";
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,8 @@ const router = createBrowserRouter([
         },
         {
           path: "/blogs",
-          element: <h2>All Blogs</h2> ,
+          element: <AllBlogs></AllBlogs> ,
+          loader: () => fetch("http://localhost:5000/blogs"),
         },
         {
           path: "/wishlist",

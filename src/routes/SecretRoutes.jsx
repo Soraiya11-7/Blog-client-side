@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthProviderContext } from "../Provider/AuthProvider";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 
 const SecretRoutes = ({children}) => {
@@ -10,7 +12,8 @@ const SecretRoutes = ({children}) => {
 
     if(loading){
         return <div className="flex items-center min-h-screen justify-center">
-            <span className="loading loading-infinity loading-lg flex items-center justify-center"></span>
+            <Skeleton count={5} height={150} width={250} />
+            {/* <span className="loading loading-infinity loading-lg flex items-center justify-center"></span> */}
         </div>
     }
 
