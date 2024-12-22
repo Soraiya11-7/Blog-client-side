@@ -30,14 +30,7 @@ const Registration = () => {
               });
             return;
         }
-        if (!/[a-z]/.test(password)) {
-            // setError("password must contain at least one  Lowercase letter");
-            toast.error("password must contain at least one  Lowercase letter", {
-                position: "top-center",
-                autoClose: 2000,
-              });
-            return;
-        }
+       
         if (!/[A-Z]/.test(password)) {
             // setError("password must contain at least one  Uppercase letter");
             toast.error("password must contain at least one  Uppercase letter", {
@@ -46,6 +39,21 @@ const Registration = () => {
               });
             return;
         }
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            toast.error("Password must contain at least one special character", {
+              position: "top-center",
+              autoClose: 2000,
+            });
+            return;
+          }
+      
+          if (!/\d/.test(password)) {
+            toast.error("Password must contain at least one number", {
+              position: "top-center",
+              autoClose: 2000,
+            });
+            return;
+          }
 
 
         // console.log({name, email, password, image});

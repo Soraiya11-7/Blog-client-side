@@ -5,6 +5,8 @@ import ErrorPage from "../pages/ErrorPage";
 import Registration from "../pages/Registration";
 import AuthLayout from "../Layout/AuthLayout";
 import Login from "../pages/Login";
+import SecretRoutes from "./SecretRoutes";
+import AddBlog from "../pages/AddBlog";
 
 
 const router = createBrowserRouter([
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/addBlog",
-          element: <h2>Add Blog</h2>,
+          element: <SecretRoutes><AddBlog></AddBlog></SecretRoutes>,
         },
         {
           path: "/blogs",
