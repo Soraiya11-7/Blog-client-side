@@ -9,6 +9,7 @@ import SecretRoutes from "./SecretRoutes";
 import AddBlog from "../pages/AddBlog";
 import AllBlogs from "../pages/AllBlogs";
 import WishList from "../pages/WishList";
+import BlogDetails from "../pages/BlogDetails";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
           path: "/blogs",
           element: <AllBlogs></AllBlogs> ,
           loader: () => fetch("http://localhost:5000/blogs"),
+        },
+        {
+          path: "/blog/:id",
+          element: <BlogDetails></BlogDetails> ,
+          
         },
         {
           path: "/wishlist",

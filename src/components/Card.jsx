@@ -2,51 +2,62 @@
 import React, { useContext, useEffect, useState } from "react";
 // import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthProviderContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
 
 const Card = ({ blog}) => {
     const {_id, title, category,  shortDetails, coverImage, bloggerName, userLogo } = blog || {};
-
+    const location = useLocation();
+    console.log(location);
+   const navigate = useNavigate();
      const {user}= useContext(AuthProviderContext);
      const [email, setUserEmail] = useState(user?.email || '');
       useEffect(() => {
             if (user) {
                 setUserEmail(user.email);
-               
             }
            
         }, [user]);
        
-        const handleAddToWishList = () => {
+        const handleAddToWishList = async () => {
             if(!user) {
-                navigate('/auth/login', { state: `/blogs/${_id}` });
-    
+                navigate('/auth/login', { state: `/blogs` });
             }
             else{
                 const newWishList = { blog_id: _id, userEmail: email };
-    
-            fetch("http://localhost:5000/wishlist", {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(newWishList)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.insertedId) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'Blog added on Wishlist Successfully',
-                            icon: 'success',
-                            confirmButtonText: 'Cool'
-                        })
+
+                    try {
+                        const response = await axios.post("http://localhost:5000/wishlist", newWishList);
+                  
+                        if (response.data.insertedId) {
+                          Swal.fire({
+                            title: "Success!",
+                            text: "Blog added on Wishlist Successfully",
+                            icon: "success",
+                            confirmButtonText: "Cool",
+                          });
+                        }
+                      } catch (err) {
+                        // Check if the error contains a response (400+ errors)
+                        if (err.response && err.response.status === 400) {
+                          toast.error(err.response.data || "Failed to add to wishlist", {
+                            position: "top-center",
+                            autoClose: 2000,
+                          });
+                        } else {
+                          // Handle unexpected errors
+                          toast.error("An unexpected error occurred. Please try again.", {
+                            position: "top-center",
+                            autoClose: 2000,
+                          });
+                        }
+                      
+                      }
                     }
-                })
-            }
+
         };
     
     return (
@@ -75,7 +86,7 @@ const Card = ({ blog}) => {
                             <div className=" px-4 text-center border-t border-gray-300  mt-4 min-h-[70px] flex-grow ">
                               
                                
-                                <Link to={`/blogs/${_id}`}>
+                                <Link to={`/blog/${_id}`}>
                                 <button className=" bg-purple-500 mt-4 p-2 text-white text-sm font-medium rounded-lg">Explore Details</button>
                            </Link>
                            
@@ -93,6 +104,7 @@ const Card = ({ blog}) => {
 
 
             </div>
+            <ToastContainer />
         </div>
     );
 };
