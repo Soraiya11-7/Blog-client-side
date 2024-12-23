@@ -11,7 +11,7 @@ import axios from "axios";
 const Card = ({ blog}) => {
     const {_id, title, category,  shortDetails, coverImage, bloggerName, userLogo } = blog || {};
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
    const navigate = useNavigate();
      const {user}= useContext(AuthProviderContext);
      const [email, setUserEmail] = useState(user?.email || '');
@@ -24,7 +24,8 @@ const Card = ({ blog}) => {
        
         const handleAddToWishList = async () => {
             if(!user) {
-                navigate('/auth/login', { state: `/blogs` });
+                // navigate('/auth/login', { state: `/blogs` });
+                navigate('/auth/login', { state: location.pathname });
             }
             else{
                 const newWishList = { blog_id: _id, userEmail: email };

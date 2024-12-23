@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthProviderContext } from "../Provider/AuthProvider";
 import { AiFillDelete } from "react-icons/ai"; // Importing a delete icon from react-icons
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
+  const navigate = useNavigate();
   const { user } = useContext(AuthProviderContext); // Get the logged-in user from the AuthContext
 
   useEffect(() => {
@@ -58,7 +59,7 @@ const WishList = () => {
             <thead>
               <tr className="bg-purple-400">
                 <th className="border border-purple-500 py-2 text-sm md:text-base lg:text-lg">No.</th>
-                <th className="border border-purple-500 py-2 text-sm md:text-base lg:text-lg">Thumbnail</th>
+               
                 <th className="border border-purple-500 py-2 text-sm md:text-base lg:text-lg ">blog Title</th>
                 <th className="border border-purple-500 px-1 py-2 text-sm md:text-base lg:text-lg">Category</th>
                 <th className="border border-purple-500 py-2 text-sm md:text-base lg:text-lg">Writer</th>
@@ -71,15 +72,7 @@ const WishList = () => {
               {wishlist.map((blog, index) => (
                 <tr key={blog._id} className="text-center bg-purple-100">
                   <td className="border border-purple-500  py-2 text-sm md:text-base  ">{index + 1}</td>
-                  <td className="border border-purple-500 py-2 text-center " >
-                    <div className="inline-flex justify-center items-center">
-                      <img
-                        src={blog.coverImage}
-                        alt="Blog Cover"
-                        className="w-6 md:w-12 h-6 md:h-12 rounded-full object-cover overflow-hidden"
-                      />
-                    </div>
-                  </td>
+                 
                   <td className="border border-purple-500  py-2 text-sm md:text-base ">{blog.title}</td>
                   <td className="border border-purple-500  py-2 text-sm md:text-base  ">{blog.category}</td>
                  
@@ -87,20 +80,23 @@ const WishList = () => {
                   <td className="border border-purple-500  py-2 text-sm md:text-base  ">{blog.shortDetails}</td>
 
                   <td className="border border-purple-500 py-2 text-sm md:text-base  ">
+                    <div className="flex justify-center items-center gap-2 md:gap-4">
                     <button
                       onClick={() => handleDelete(blog._id)}
                       className=" text-center text-red-600 rounded-full transition-all duration-300"
                     >
-                      <AiFillDelete className="text-center" size={20} />
+                      <AiFillDelete className="text-center" size={24} />
                     </button>
-                   <Link to={`/blogs/${blog._id}`}>
+                  
                    <button
-                      onClick={() => handleDelete(blog._id)}
-                      className=" text-center text-orange-950 rounded-xl transition-all duration-300"
+                      onClick={() => navigate(`/blog/${blog.blog_id}`)}
+                      className=" text-center text-white bg-orange-900 p-1 rounded-lg transition-all duration-300"
                     >
-                      view
+                      View
                     </button>
-                   </Link>
+                   
+                    </div>
+                   
                   </td>
                 </tr>
               ))}

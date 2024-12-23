@@ -44,12 +44,13 @@ const AllComments = ({ id, commentsUpdated }) => {
                 </div>
             ) : (
                 commentData.map((data, index) => (
-                    <div key={index} className="flex items-center p-6 gap-2 mb-3 my-3 border border-xl bg-slate-100">
-                       <div className=''>
+                    <div key={index} className="flex flex-col p-6 gap-2 mb-3 my-3 border border-xl bg-slate-100">
+                       <div className='flex  gap-1'>
                        <img src={data.commentOwnerImg} alt="User Avatar" className="w-8 h-8 rounded-full" />
+                       <p className="font-semibold">{data.commentOwnerName}</p>
                        </div>
                         <div>
-                            <p className="font-semibold">{data.commentOwnerName}</p>
+                            
                             <p className="text-gray-700">{data.comment}</p>
                         </div>
                     </div>
