@@ -10,6 +10,7 @@ import AddBlog from "../pages/AddBlog";
 import AllBlogs from "../pages/AllBlogs";
 import WishList from "../pages/WishList";
 import BlogDetails from "../pages/BlogDetails";
+import AddUpdate from "../pages/AddUpdate";
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         {
           path: "/wishlist",
           element: <SecretRoutes><WishList></WishList></SecretRoutes> ,
+        },
+        {
+          path: "/update/:id",
+          element: <SecretRoutes><AddUpdate></AddUpdate></SecretRoutes> ,
         },
         {
             path: "/featuredBlogs",
