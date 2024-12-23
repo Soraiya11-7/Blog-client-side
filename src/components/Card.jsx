@@ -1,52 +1,86 @@
 
-import React from "react";
-import { FaStar } from "react-icons/fa";
+import React, { useContext, useEffect, useState } from "react";
+// import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import { Link } from "react-router-dom";
+import { AuthProviderContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Card = ({ blog}) => {
     const {_id, title, category,  shortDetails, coverImage, bloggerName, userLogo } = blog || {};
+
+     const {user}= useContext(AuthProviderContext);
+     const [email, setUserEmail] = useState(user?.email || '');
+      useEffect(() => {
+            if (user) {
+                setUserEmail(user.email);
+               
+            }
+           
+        }, [user]);
+       
+        const handleAddToWishList = () => {
+            if(!user) {
+                navigate('/auth/login', { state: `/blogs/${_id}` });
+    
+            }
+            else{
+                const newWishList = { blog_id: _id, userEmail: email };
+    
+            fetch("http://localhost:5000/wishlist", {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newWishList)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Blog added on Wishlist Successfully',
+                            icon: 'success',
+                            confirmButtonText: 'Cool'
+                        })
+                    }
+                })
+            }
+        };
     
     return (
         <div className="w-full mx-auto flex justify-center items-center ">
             <div className="shadow-xl w-full h-full rounded-lg bg-white overflow-hidden ">
                 {/* Header.................... */}
-                <div className="bg-purple-400 pt-4 text-center w-full">
-                    <div  className="h-52 w-[90%] mx-auto shadow-xl rounded-t-lg ">
+               
+                    <div  className="h-52 w-full mx-auto shadow-xl rounded-t-lg ">
                         <img src={coverImage} className="h-full w-full object-cover overflow-hidden rounded-t-lg" alt="coverImage" />
-
-                    </div>
                 </div>
 
-                <div className=" bg-white  pb-4 text-center w-full">
+                <div className=" bg-white pb-4 text-left w-full">
                     {/* Card Content...................... */}
-                    <div className="relative bg-white p-4 w-[90%] text-center mx-auto shadow-xl rounded-b-lg min-h-[300px] flex flex-col flex-grow   ">
-                        {/* Profile Image................ */}
-                        <div className="absolute -top-14 left-1/2 transform -translate-x-1/2">
-                            <div className="avatar">
-                                <div className="w-24 rounded-full ring ring-purple-500 border-none outline-none ring-offset-2">
-                                    <img
-                                        src={blog?.userLogo}
-                                        alt="User Profile"
-                                        className="object-cover overflow-hidden w-full h-full"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                    <div className="relative bg-white p-4 w-[90%] text-left mx-auto shadow-xl rounded-b-lg min-h-[300px] flex flex-col flex-grow   ">
+                    <p className="text-sm text-gray-500 uppercase ">{category}</p>
+                    <h3 className="text-base md:text-lg font-semibold  min-h-[30px] flex-grow ">{title}</h3>
 
             
                         <div className="mt-8 flex flex-col flex-grow min-h-[280px]  ">
-                            <p className="text-sm font-semibold text-gray-800 mb-3 ">{bloggerName}</p>
-                            <p className="text-gray-600 italic text-sm  min-h-[50px] flex-grow ">
-                                <span>"{shortDetails}"</span>
+                        <p className="text-gray-600  text-sm min-h-[50px] flex-grow ">
+                                <span>{shortDetails}</span>
                             </p>
+                            <p className="text-sm font-semibold text-gray-800 mb-3 ">BY {bloggerName} - </p>
+                            
 
                             <div className=" px-4 text-center border-t border-gray-300  mt-4 min-h-[70px] flex-grow ">
-                                <h3 className="text-base md:text-lg font-semibold  min-h-[30px] flex-grow ">{title}</h3>
-                                <p className="text-sm text-gray-500 uppercase ">{category}</p>
+                              
                                
-                                <Link to={`/review/${_id}`}>
+                                <Link to={`/blogs/${_id}`}>
                                 <button className=" bg-purple-500 mt-4 p-2 text-white text-sm font-medium rounded-lg">Explore Details</button>
                            </Link>
+                           
+                                <button onClick={handleAddToWishList} className=" ml-2 bg-purple-500 mt-4 p-2 text-white text-sm font-medium rounded-lg">Add Wishlist</button>
+                           
                                 
 
 

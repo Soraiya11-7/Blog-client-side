@@ -3,11 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthProviderContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import { format } from 'date-fns';
 
 const AddBlog = () => {
+
     const { user } = useContext(AuthProviderContext);
     const navigate = useNavigate();
-
+    // const [startDate, setStartDate] = useState(new Date())
+    // console.log(new Date(), 'P');
+    const date = format(new Date(), 'PP');
+    console.log(date);
+    
     const [bloggerEmail, setBloggerEmail] = useState(user?.email || '');
     const [bloggerName, setBloggerName] = useState(user?.displayName || '');
     const [userLogo, setUserLogo] = useState(user?.photoURL || '');
