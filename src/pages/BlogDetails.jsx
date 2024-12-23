@@ -4,72 +4,59 @@ import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { AuthProviderContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import Comment from '../components/Comment';
+import AllComments from '../components/AllComments';
+// import { h2 } from 'framer-motion/client';
 
 const BlogDetails = () => {
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
     const navigate = useNavigate();
     const { user } = useContext(AuthProviderContext)
     const [blog, setBlog] = useState({})
-    useEffect(() => {
-        fetchBlogData()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id])
-
-    const fetchBlogData = async () => {
-        const { data } = await axios.get(
-            `http://localhost:5000/blog/${id}`
-        )
-        setBlog(data)
-        // setStartDate(new Date(data.deadline))
-    }
-    const { _id, title, category, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo, } = blog || {}
-
-
-    //current logged in users info
     const [email, setUserEmail] = useState(user?.email || '');
-    const [name, setUserName] = useState(user?.displayName || '');
-
-
+    const [commentsUpdated, setCommentsUpdated] = useState(false);
 
     useEffect(() => {
         if (user) {
             setUserEmail(user.email);
-            setUserName(user.displayName);
         }
+        fetchBlogData();
+    }, [id,user])
 
-    }, [user]);
+    const fetchBlogData = async () => {
+        const { data } = await axios.get(`http://localhost:5000/blog/${id}`)
+        setBlog(data)
+        // setStartDate(new Date(data.deadline))
+    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    // const fetchCommentData = async () => {
+    //     const { data } = await axios.get(`http://localhost:5000/commentList/${id}`);
+    //     setComments(data);
+    // };
 
-        const form = e.target;
-        const comment = form.comment.value;
-        
-
-        const newComment = {comment, commentOwnerName: user.name, blog_id: _id, };
-
-        fetch("http://localhost:5000/commentList", {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newComment)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                Swal.fire({
-                        title: 'Success!',
-                        text: 'comment added Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
-                }
-            })
-
+    const handleCommentAdded = () => {
+        setCommentsUpdated((prev) => !prev);
     };
+
+    const { _id, title, category, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo, } = blog || {}
+
+
+    // const [access, setAccess] = useState(false);
+    
+    // if (user?.email === bloggerEmail)
+    // {
+    //     setAccess(false);
+    // }
+        
+    // useEffect(() => {
+    //     if (user) {
+    //         setUserEmail(user.email);
+    //     }
+
+    // }, [user]);
+
+   
 
     return (
         <div className='w-[80%] mx-auto'>
@@ -131,19 +118,41 @@ const BlogDetails = () => {
                             <span className="text-xs md:text-base font-normal">Long Details:{longDetails}</span>
 
                         </div>
-
-                        <form onSubmit={handleSubmit} className='bg-slate-300 py-10 px-6 shadow-lg rounded-xl' >
-
-                            <div className="form-control w-full mb-8">
-                                <label className="label">
-                                    <span className="label-text">Leave a Comment</span>
-                                </label>
-                                <textarea name="comment" placeholder="write a comment here" className="input input-bordered w-full text-xs sm:text-base" required />
+                         {
+                            (user?.email === bloggerEmail) &&  
+                            <div className='flex items-center justify-end mb-6'>
+                                <button
+                            onClick={() =>navigate(`/update/${id}`)}
+                            className="bg-gradient-to-r from-purple-500 to-blue-500 text-white  text-xs sm:text-sm md:text-base font-bold py-2 px-6 rounded-lg shadow-md "
+                        >
+                            Update Blog
+                        </button>
                             </div>
+                         }
+                         
+                        
+                        <label className="label">
+                        <span className="label-text">Leave a Comment</span>
+                    </label>
+                          {
+                            (user?.email === bloggerEmail) ? 
+                            <h2 className='text-red-500'>Can not comment on own blog*</h2>
+                            : 
+                           
+                            <Comment key={id} id={id} onCommentAdded={handleCommentAdded}></Comment> 
+                          }
 
+                          <div className='my-2'>
+                          <h2 className='text-3xl text-center my-6'>Comment </h2>
+                          <hr />
 
-                            <input type="submit" value=" Add Comment" className="btn btn-block bg-purple-500 text-white font-bold border-none" />
-                        </form>
+                          <AllComments key={id} id={id} commentsUpdated={commentsUpdated}></AllComments>
+
+                          
+
+                          </div>
+
+                       
 
                         {/* Add to Comment List Button */}
                         {/* <div className="flex justify-center ">

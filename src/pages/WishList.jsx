@@ -3,23 +3,24 @@ import { AuthProviderContext } from "../Provider/AuthProvider";
 import { AiFillDelete } from "react-icons/ai"; // Importing a delete icon from react-icons
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
   const { user } = useContext(AuthProviderContext); // Get the logged-in user from the AuthContext
 
   useEffect(() => {
-    if (user?.email) {
-      fetch(`http://localhost:5000/wishlist?email=${user.email}`)
-        .then((res) => res.json())
-        .then((data) => setWishlist(data))
-        // .catch((error) => alert(error));
-    }
-    console.log(wishlist);
+
+    fetchAllBlogs();
   }, [user]);
 
-  const handleDelete = (_id) => {
-    Swal.fire({
+  const fetchAllBlogs = async () => {
+    const { data } = await axios.get(`http://localhost:5000/wishlist?email=${user.email}`)
+    setWishlist(data)
+  }
+  const handleDelete = async (_id) => {
+    const result = await Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
@@ -27,27 +28,21 @@ const WishList = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/wishlist/${_id}`, {
-          method: 'DELETE'
-        })
-          .then(res => res.json())
-          .then(data => {
-            // console.log(data);
-            if (data.deletedCount > 0) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your blog from wishlist has been deleted.",
-                icon: "success"
-              });
-              const remaining = wishlist.filter(blog => blog._id !== _id);
-              setWishlist(remaining);
-            }
-          })
-      }
     });
+  
+    if (result.isConfirmed) {
+      try {
+        const { data } = await axios.delete(`http://localhost:5000/wishlist/${_id}`);
+        toast.success('Data Deleted Successfully!!!');
+        fetchAllBlogs(); 
+      } catch (err) {
+        console.error(err);
+        toast.error(err.message);
+      }
+    }
   };
+  
+
 
   return (
     <div className="w-[80%] mx-auto py-10">
@@ -113,6 +108,7 @@ const WishList = () => {
           </table>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };
