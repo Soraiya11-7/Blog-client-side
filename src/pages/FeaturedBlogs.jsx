@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import Table from '../components/Table';
 const FeaturedBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
@@ -17,31 +17,16 @@ const FeaturedBlogs = () => {
     }
   };
 
+
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Featured Blogs</h1>
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full border-collapse border border-gray-200">
-          <thead>
-            <tr className="bg-gray-100 text-left">
-              <th className="border px-4 py-2">Title</th>
-              <th className="border px-4 py-2">Category</th>
-              <th className="border px-4 py-2">Short Description</th>
-              <th className="border px-4 py-2">Blogger Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {blogs.map((blog) => (
-              <tr key={blog._id} className="hover:bg-gray-50">
-                <td className="border px-4 py-2">{blog.title}</td>
-                <td className="border px-4 py-2">{blog.category}</td>
-                <td className="border px-4 py-2">{blog.shortDetails}</td>
-                <td className="border px-4 py-2">{blog.bloggerName}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div className="w-[80%] mx-auto py-6">
+      <h1 className="text-3xl font-bold text-center mb-3">Featured Blogs</h1>
+      <h3 className='text-center text-lg mb-12 w-[80%] md:w-[60%] mx-auto'>Discover handpicked top blogs sorted dynamically by relevance, displayed in a responsive, sortable table</h3>
+
+      <div>
+        <Table  blogs={blogs}></Table>
       </div>
+   
     </div>
   );
 };
