@@ -2,23 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthProviderContext } from '../Provider/AuthProvider';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 // import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
+// import axios from 'axios';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddUpdate = () => {
     const { user } = useContext(AuthProviderContext);
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
     const [genre, setGenre] = useState('');
-    // const [startDate, setStartDate] = useState(new Date())
-    // console.log(new Date(), 'P');
+
     // const date = format(new Date(), 'PP');
-    // console.log(date);
-  
+
+
     const [blog, setBlog] = useState({})
+    const axiosSecure = useAxiosSecure();
     const [email, setUserEmail] = useState(user?.email || '');
 
     useEffect(() => {
@@ -26,21 +30,27 @@ const AddUpdate = () => {
             setUserEmail(user.email);
         }
         fetchBlogData();
-    }, [id,user])
+    }, [id, user]);
+
 
     const fetchBlogData = async () => {
-        const { data } = await axios.get(`http://localhost:5000/blog/${id}`)
-        setBlog(data);
-        setGenre(data.category || '');
-        // setStartDate(new Date(data.deadline))
-    }
-    
+
+        try {
+            const { data } = await axiosSecure.get(`/blog/${id}`)
+            setBlog(data);
+            setGenre(data.category || '');
+
+        } catch (error) {
+            // toast.error('Failed to fetch blog data.');
+        }
+    };
+
     const {
         _id,
         title, category, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo
     } = blog || {};
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const form = e.target;
@@ -49,33 +59,52 @@ const AddUpdate = () => {
         const longDetails = form.longDetails.value;
         const coverImage = form.coverImage.value;
 
-        const newBlog = { title, category:genre, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo };
+        const newBlog = { title, category: genre, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo };
 
-        console.log(newBlog);
+        // console.log(newBlog);
 
-        // console.log(newReview);
-
-        fetch(`http://localhost:5000/blog/${_id}`, {
-            method:"PUT",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newBlog)
-           })
-           .then(res => res.json())
-           .then(data => {
-            // console.log(data);
-            if(data.modifiedCount > 0){
+        try {
+            const response = await axiosSecure.put(`/blog/${_id}`, newBlog)
+            console.log(response);
+            if (response.data?.modifiedCount) {
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Blog Updated Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                  })
-
-                  navigate(`/blog/${id}`);
+                    title: "Success!",
+                    text: "Data Updated Successfully!!!",
+                    icon: "success",
+                    confirmButtonText: "Cool",
+                });
             }
-           })
+            // toast.success('Data Updated Successfully!!!');
+            form.reset()
+            navigate(`/blog/${id}`);
+
+        } catch (err) {
+            // console.log(err)
+            toast.error(err.message)
+        }
+
+
+        // fetch(`http://localhost:5000/blog/${_id}`, {
+        //     method:"PUT",
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(newBlog)
+        //    })
+        //    .then(res => res.json())
+        //    .then(data => {
+        //     // console.log(data);
+        //     if(data.modifiedCount > 0){
+        //         Swal.fire({
+        //             title: 'Success!',
+        //             text: 'Blog Updated Successfully',
+        //             icon: 'success',
+        //             confirmButtonText: 'Cool'
+        //           })
+
+        //           navigate(`/blog/${id}`);
+        //     }
+        //    })
 
 
     };
@@ -91,7 +120,7 @@ const AddUpdate = () => {
                         <label className="label">
                             <span className="label-text">Blog Title</span>
                         </label>
-                        <input type="text" name="title" defaultValue={title}  placeholder="Enter Blog Title" className="input input-bordered w-full text-xs sm:text-base" required />
+                        <input type="text" name="title" defaultValue={title} placeholder="Enter Blog Title" className="input input-bordered w-full text-xs sm:text-base" required />
                     </div>
                     <div className="form-control md:w-1/2 md:ml-4">
                         {/* Blog Cover Image/Thumbnail */}
@@ -112,8 +141,8 @@ const AddUpdate = () => {
                         <label className="label">
                             <span className="label-text">Category</span>
                         </label>
-                        <select name='category' value={genre} 
-                            onChange={(e) => setGenre(e.target.value)}className="select select-bordered w-full text-xs sm:text-base" required>
+                        <select name='category' value={genre}
+                            onChange={(e) => setGenre(e.target.value)} className="select select-bordered w-full text-xs sm:text-base" required>
                             <option disabled>Select category</option>
                             <option value="Fashion">Fashion</option>
                             <option value="Inspiration">Inspiration</option>
@@ -126,7 +155,7 @@ const AddUpdate = () => {
                         <label className="label">
                             <span className="label-text">Short Description</span>
                         </label>
-                        <textarea name="shortDetails" defaultValue={shortDetails}  placeholder="Short details" className="input input-bordered w-full text-xs sm:text-base" required />
+                        <textarea name="shortDetails" defaultValue={shortDetails} placeholder="Short details" className="input input-bordered w-full text-xs sm:text-base" required />
                     </div>
 
 
@@ -140,12 +169,14 @@ const AddUpdate = () => {
                     <label className="label">
                         <span className="label-text">Long Description</span>
                     </label>
-                    <textarea name="longDetails" defaultValue={longDetails}  placeholder="Long Details" className="input input-bordered w-full text-xs sm:text-base" required />
+                    <textarea name="longDetails" defaultValue={longDetails} placeholder="Long Details" className="input input-bordered w-full text-xs sm:text-base" required />
                 </div>
 
 
                 <input type="submit" value="Submit Blog" className="btn btn-block bg-purple-500 text-white font-bold border-none" />
             </form>
+
+            <ToastContainer />
 
         </div>
     );

@@ -3,24 +3,35 @@ import { AuthProviderContext } from "../Provider/AuthProvider";
 import { AiFillDelete } from "react-icons/ai"; // Importing a delete icon from react-icons
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { user } = useContext(AuthProviderContext); // Get the logged-in user from the AuthContext
 
   useEffect(() => {
-
     fetchAllBlogs();
   }, [user]);
 
   const fetchAllBlogs = async () => {
-    const { data } = await axios.get(`http://localhost:5000/wishlist?email=${user.email}`)
-    setWishlist(data)
+    
+    try {
+      const { data } = await axiosSecure.get(`/wishlist?email=${user.email}`)
+      setWishlist(data)
+    } catch (err) {
+      // console.error(err);
+      // console.log(err);
+      const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
+      toast.error(errorMessage);
+    }
+    
   }
   const handleDelete = async (_id) => {
+
     const result = await Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -33,7 +44,7 @@ const WishList = () => {
   
     if (result.isConfirmed) {
       try {
-        const { data } = await axios.delete(`http://localhost:5000/wishlist/${_id}`);
+        const { data } = await axiosSecure.delete(`/wishlist/${_id}`);
         toast.success('Data Deleted Successfully!!!');
         fetchAllBlogs(); 
       } catch (err) {

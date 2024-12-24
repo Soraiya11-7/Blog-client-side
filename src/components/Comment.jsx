@@ -3,53 +3,51 @@ import Swal from 'sweetalert2';
 import { AuthProviderContext } from '../Provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const Comment = ({ id, onCommentAdded }) => {
 
     const { user } = useContext(AuthProviderContext);
     const navigate = useNavigate();
-    console.log(user);
+    const axiosSecure = useAxiosSecure();
+    // console.log(user);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
 
         e.preventDefault();
         const form = e.target;
         const comment = form.comment.value;
 
-        const newComment = { comment, commentOwnerName: user?.displayName, blog_id: id, commentOwnerImg: user?.photoURL };
+        const newComment = { comment, commentOwnerName: user?.displayName,commentOwnerEmail:user?.email, blog_id: id, commentOwnerImg: user?.photoURL };
 
-        if(!user){
+        if (!user) {
             toast.warning("Not loggedIn");
             navigate('/auth/login', { state: `/blog/${id}` });
         }
-        else{
-            fetch("http://localhost:5000/commentList", {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(newComment)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.insertedId) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'comment added Successfully',
-                            icon: 'success',
-                            confirmButtonText: 'Cool'
-                        })
-                    }
-                    e.target.reset();
-                    onCommentAdded();
-                })
+        else {
+
+            try {
+                const response = await axiosSecure.post(`/commentList`,
+                    newComment)
+                console.log(response);
+                if (response.data?.insertedId) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Comment Added Successfully!!!",
+                        icon: "success",
+                        confirmButtonText: "Cool",
+                    });
+                }
+                e.target.reset();
+                onCommentAdded();
+            } catch (err) {
+                const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
+                toast.error(errorMessage)
+            }
         }
 
-     
-
     };
-  
+
     return (
         <div>
             <form onSubmit={handleSubmit} className='bg-slate-300 py-2 px-6 shadow-lg rounded-xl' >

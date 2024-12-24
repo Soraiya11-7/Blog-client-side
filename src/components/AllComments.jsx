@@ -10,28 +10,15 @@ const AllComments = ({ id, commentsUpdated }) => {
     }, [id, commentsUpdated]);
 
     const fetchCommentData = async () => {
-        const { data } = await axios.get(`http://localhost:5000/commentList/${id}`);
-        setCommentData(data);
+        try {
+            const { data } = await axios.get(`http://localhost:5000/commentList/${id}`);
+           setCommentData(data);
+
+        } catch (error) {
+            // toast.error('Failed to fetch comment data.');
+        }
+        
     };
-    console.log(commentData);
-
-    // const [commentData, setCommentData] = useState([])
-
-    // useEffect(() => {
-    //     fetchCommentData()
-    // }, [id])
-
-    // const fetchCommentData = async () => {
-    //     const { data } = await axios.get(
-    //         `http://localhost:5000/commentList/${id}`
-    //     )
-    //     setCommentData(data);
-    //     console.log(data);
-    //     // setStartDate(new Date(data.deadline))
-    // }
-
-    // const {comment, commentOwnerName, commentOwnerImg} = commentData || {};
-
 
     return (
         <div>

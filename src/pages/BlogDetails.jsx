@@ -2,10 +2,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { AuthProviderContext } from '../Provider/AuthProvider';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import axios from 'axios';
 import Comment from '../components/Comment';
 import AllComments from '../components/AllComments';
+import { toast } from 'react-toastify';
 // import { h2 } from 'framer-motion/client';
 
 const BlogDetails = () => {
@@ -25,38 +26,23 @@ const BlogDetails = () => {
     }, [id,user])
 
     const fetchBlogData = async () => {
+     try {
         const { data } = await axios.get(`http://localhost:5000/blog/${id}`)
         setBlog(data)
-        // setStartDate(new Date(data.deadline))
+        } catch (err) {
+          // console.error(err);
+          // console.log(err);
+        //   const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
+        //   toast.error(errorMessage);
+        }
     }
 
-    // const fetchCommentData = async () => {
-    //     const { data } = await axios.get(`http://localhost:5000/commentList/${id}`);
-    //     setComments(data);
-    // };
 
     const handleCommentAdded = () => {
         setCommentsUpdated((prev) => !prev);
     };
 
-    const { _id, title, category, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo, } = blog || {}
-
-
-    // const [access, setAccess] = useState(false);
-    
-    // if (user?.email === bloggerEmail)
-    // {
-    //     setAccess(false);
-    // }
-        
-    // useEffect(() => {
-    //     if (user) {
-    //         setUserEmail(user.email);
-    //     }
-
-    // }, [user]);
-
-   
+    const { _id, title, category, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo, } = blog || {};
 
     return (
         <div className='w-[80%] mx-auto'>
@@ -138,7 +124,6 @@ const BlogDetails = () => {
                             (user?.email === bloggerEmail) ? 
                             <h2 className='text-red-500'>Can not comment on own blog*</h2>
                             : 
-                           
                             <Comment key={id} id={id} onCommentAdded={handleCommentAdded}></Comment> 
                           }
 
@@ -148,21 +133,8 @@ const BlogDetails = () => {
 
                           <AllComments key={id} id={id} commentsUpdated={commentsUpdated}></AllComments>
 
-                          
-
                           </div>
 
-                       
-
-                        {/* Add to Comment List Button */}
-                        {/* <div className="flex justify-center ">
-                                <button
-                                    onClick={() =>handleAddToCommentList()}
-                                    className="bg-gradient-to-r from-purple-500 to-blue-500 text-white  text-xs sm:text-sm md:text-base font-bold py-2 px-6 rounded-lg shadow-md hover:from-blue-500 hover:to-green-400 transition-all duration-300"
-                                >
-                                    Add Comment
-                                </button>
-                            </div> */}
                     </div>
                 </div>
             </div>

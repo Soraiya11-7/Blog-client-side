@@ -2,20 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthProviderContext } from '../Provider/AuthProvider';
-import Swal from 'sweetalert2';
-import DatePicker from 'react-datepicker'
+// import Swal from 'sweetalert2';
+// import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import { toast, ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const AddBlog = () => {
 
     const { user } = useContext(AuthProviderContext);
     const navigate = useNavigate();
-    // const [startDate, setStartDate] = useState(new Date())
-    // console.log(new Date(), 'P');
-    const date = format(new Date(), 'PP');
-    console.log(date);
-    
+    const axiosSecure = useAxiosSecure();
+
+    // const date = format(new Date(), 'PP');
+    // console.log(date);
+
     const [bloggerEmail, setBloggerEmail] = useState(user?.email || '');
     const [bloggerName, setBloggerName] = useState(user?.displayName || '');
     const [userLogo, setUserLogo] = useState(user?.photoURL || '');
@@ -29,7 +32,7 @@ const AddBlog = () => {
         }
     }, [user]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const form = e.target;
@@ -43,26 +46,45 @@ const AddBlog = () => {
 
         console.log(newBlog);
 
-        fetch("http://localhost:5000/blogs", {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newBlog)
-        })
-            .then(res => res.json())
-            .then(data => {
+        try {
+            const response = await axiosSecure.post(`/blogs`,
+                newBlog)
+            console.log(response);
+            if (response.data?.insertedId) {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Blog Added Successfully!!!",
+                    icon: "success",
+                    confirmButtonText: "Cool",
+                });
+            }
+            form.reset()
+            navigate('/blogs')
+        } catch (err) {
+             const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
+            toast.error(errorMessage)
+        }
 
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Blog added Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
-                    navigate('/');
-                }
-            })
+        // fetch("http://localhost:5000/blogs", {
+        //     method: "POST",
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(newBlog)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+
+        //         if (data.insertedId) {
+        //             Swal.fire({
+        //                 title: 'Success!',
+        //                 text: 'Blog added Successfully',
+        //                 icon: 'success',
+        //                 confirmButtonText: 'Cool'
+        //             })
+        //             navigate('/');
+        //         }
+        //     })
 
 
     };
@@ -132,7 +154,7 @@ const AddBlog = () => {
 
                 <input type="submit" value="Submit Blog" className="btn btn-block bg-purple-500 text-white font-bold border-none" />
             </form>
-
+            <ToastContainer />
         </div>
     );
 };

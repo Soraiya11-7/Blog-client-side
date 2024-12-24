@@ -7,12 +7,14 @@ import { AuthProviderContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Card = ({ blog}) => {
     const {_id, title, category,  shortDetails, coverImage, bloggerName, userLogo } = blog || {};
     const location = useLocation();
     // console.log(location);
    const navigate = useNavigate();
+   const axiosSecure = useAxiosSecure();
      const {user}= useContext(AuthProviderContext);
      const [email, setUserEmail] = useState(user?.email || '');
       useEffect(() => {
@@ -31,7 +33,7 @@ const Card = ({ blog}) => {
                 const newWishList = { blog_id: _id, userEmail: email };
 
                     try {
-                        const response = await axios.post("http://localhost:5000/wishlist", newWishList);
+                        const response = await axiosSecure.post("/wishlist", newWishList);
                   
                         if (response.data.insertedId) {
                           Swal.fire({
@@ -42,8 +44,8 @@ const Card = ({ blog}) => {
                           });
                         }
                       } catch (err) {
-                        // Check if the error contains a response (400+ errors)
-                        if (err.response && err.response.status === 400) {
+                        
+                        if (err.response && err.response?.status === 400) {
                           toast.error(err.response.data || "Failed to add to wishlist", {
                             position: "top-center",
                             autoClose: 2000,
