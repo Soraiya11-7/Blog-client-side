@@ -1,75 +1,25 @@
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 import Card from '../components/Card';
-import { useLoaderData } from 'react-router-dom';
+// import { useLoaderData } from 'react-router-dom';
+import axios from 'axios';
 
 const AllBlogs = () => {
-    const allBlogs = useLoaderData();
-    const [blogs, setBlogs] = useState(allBlogs);
+    // const allBlogs = useLoaderData();
+    const [blogs, setBlogs] = useState([]);
     const [search, setSearch] = useState('');
-    const [category, setCategory] = useState('all');
-
+    const [category, setCategory] = useState('');
 
     useEffect(() => {
-        const applyFilters = async () => {
-            let filteredData = [...allBlogs];
-      
-            // Filter locally by category
-            if (category !== 'all') {
-              filteredData = filteredData.filter(blog =>
-                blog.category.toLowerCase() === category.toLowerCase()
-              );
-            }
-      
-            // Fetch from server for search query
-            if (search) {
-              const searchResults = await fetchBlogs(search);
-              if (category !== 'all') {
-                filteredData = searchResults.filter(blog =>
-                  blog.category.toLowerCase() === category.toLowerCase()
-                );
-                setBlogs(filteredData);
-              }
-              else{
-                setBlogs(searchResults);
-              }
-            // setBlogs(searchResults);
-            } else {
-              // Use local data if no search query
-              setBlogs(filteredData);
-            }
-          };
-      
-          applyFilters();
-
-
-
-    }, [allBlogs, category, search]);
-
-    const fetchBlogs = async (searchTitle) => {
-        try {
-         
-          const response = await fetch(`http://localhost:5000/blogs?title=${encodeURIComponent(searchTitle)}`);
-    
-          if (!response.ok) {
-            throw new Error(`Error: ${response.statusText}`);
-          }
-    
-          const fetchedBlogs = await response.json();
-          console.log(fetchedBlogs);
-          return fetchedBlogs; // Return the fetched blogs 
-        } catch (error) {
-          console.error('Error fetching blogs:', error.message);
-          return [];
-        }
-      };
-
-
-    const handleSearch = (e) => {
-        const value = e.target.value;
-        setSearch(value);
-    };
-
+      const fetchAllBlogs = async () => {
+        const { data } = await axios.get(
+          `http://localhost:5000/blogs?category=${category}&search=${search}`
+        )
+        setBlogs(data)
+      }
+      fetchAllBlogs()
+    }, [category, search])
+  
 
     return (
         <div className='w-[80%] mx-auto py-10'>
@@ -79,15 +29,16 @@ const AllBlogs = () => {
                     type="text"
                     placeholder="Search by title"
                     value={search}
-                    onChange={handleSearch}
+                    onChange={(e) => setSearch(e.target.value)}
                     className="p-2 border"
                 />
                 <select
                     value={category}
+                    id={category}
                     onChange={(e) => setCategory(e.target.value)}
                     className="p-2 border"
                 >
-                    <option value="all">All Categories</option>
+                    <option value="">All Categories</option>
                     <option value="Fashion">Fashion</option>
                     <option value="Travel">Travel</option>
                     <option value="Inspiration">Inspiration</option>

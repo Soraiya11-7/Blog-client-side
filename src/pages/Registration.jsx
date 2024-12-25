@@ -214,7 +214,7 @@ const Registration = () => {
                 <div className='flex justify-center items-center mb-3'>
                     <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-xl border hover:border-purple-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
                 </div>
-                <ToastContainer />
+                {/* <ToastContainer /> */}
 
                 <h2 className='mb-3 text-center'>You have an account? <Link className='text-blue-400' to='/auth/login'>Login Now</Link></h2>
             </div>

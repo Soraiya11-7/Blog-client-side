@@ -176,7 +176,7 @@ const AddUpdate = () => {
                 <input type="submit" value="Submit Blog" className="btn btn-block bg-purple-500 text-white font-bold border-none" />
             </form>
 
-            <ToastContainer />
+            {/* <ToastContainer /> */}
 
         </div>
     );

@@ -42,7 +42,7 @@ const Newsletter = () => {
           </button>
         </form>
 
-        <ToastContainer/>
+        {/* <ToastContainer/> */}
       </div>
     </div>
   );

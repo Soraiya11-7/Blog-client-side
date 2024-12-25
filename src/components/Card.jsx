@@ -107,7 +107,7 @@ const Card = ({ blog}) => {
 
 
             </div>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
         </div>
     );
 };

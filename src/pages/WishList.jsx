@@ -18,13 +18,14 @@ const WishList = () => {
   }, [user]);
 
   const fetchAllBlogs = async () => {
-    
+    // toast.error("errorMessage");
     try {
       const { data } = await axiosSecure.get(`/wishlist?email=${user.email}`)
-      setWishlist(data)
+      setWishlist(data);
+     
     } catch (err) {
       // console.error(err);
-      // console.log(err);
+      console.log(err);
       const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
       toast.error(errorMessage);
     }
@@ -115,7 +116,7 @@ const WishList = () => {
           </table>
         </div>
       )}
-      <ToastContainer />
+    
     </div>
   );
 };

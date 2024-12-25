@@ -132,7 +132,7 @@ const Login = () => {
                 <div className='flex justify-center items-center mb-3'>
                     <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-xl border text-base sm:text-lg hover:border-purple-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
                 </div>
-                <ToastContainer />
+                {/* <ToastContainer /> */}
                 <h2 className='text-sm sm:text-base text-center mb-3'>New to this website? <Link to='/auth/register' className='text-blue-500'>Create an account</Link></h2>
             </div>
         </div>
