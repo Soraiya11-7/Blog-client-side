@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const AllComments = ({ id, commentsUpdated }) => {
-    console.log(id);
     const [commentData, setCommentData] = useState([]);
 
     useEffect(() => {
@@ -11,7 +10,7 @@ const AllComments = ({ id, commentsUpdated }) => {
 
     const fetchCommentData = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5000/commentList/${id}`);
+            const { data } = await axios.get(`https://assignment-11-server-one-kohl.vercel.app/commentList/${id}`);
            setCommentData(data);
 
         } catch (error) {

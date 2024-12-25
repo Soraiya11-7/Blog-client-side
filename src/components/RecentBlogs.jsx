@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const RecentBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -10,10 +11,11 @@ const RecentBlogs = () => {
 
   const fetchRecentBlogs = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/recentBlogs');
+      const { data } = await axios.get('https://assignment-11-server-one-kohl.vercel.app/recentBlogs');
       setBlogs(data);
     } catch (error) {
-      console.error('Error fetching recent blogs:', error);
+          const errorMessage = error.response?.data?.message || error.message || 'Something went wrong!';
+          toast.error(errorMessage);
     }
   };
 

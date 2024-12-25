@@ -1,8 +1,8 @@
 import { Link, NavLink, useLoaderData, useLocation, useNavigate } from "react-router-dom";
-// import { RiCoupon3Fill } from "react-icons/ri";
 import { useContext, useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { AuthProviderContext } from "../Provider/AuthProvider";
+import logo from "../assets/bl2.png"
 
 
 const Navbar = () => {
@@ -18,10 +18,10 @@ const Navbar = () => {
 
         <li><NavLink to='/'
             className={({ isActive }) =>
-                `flex items-center gap-x-1  ${isActive ? 'text-lime-400 font-bold' : 'text-white '}`
+                `flex items-center gap-x-1  ${isActive ? 'text-yellow-400 font-bold' : 'text-white '}`
             }>Home</NavLink></li>
         <li><NavLink className={({ isActive }) =>
-            `flex items-center gap-x-0.5  ${isActive ? 'text-lime-400 font-bold' : 'text-white'}`
+            `flex items-center gap-x-0.5  ${isActive ? 'text-yellow-400 font-bold' : 'text-white'}`
         } to='/blogs'>All Blogs</NavLink></li>
 
         {
@@ -29,7 +29,7 @@ const Navbar = () => {
                 <li>
                     <NavLink
                         className={({ isActive }) =>
-                            `flex items-center ${isActive ? 'text-lime-400 font-bold' : 'text-white'}`
+                            `flex items-center ${isActive ? 'text-yellow-400 font-bold' : 'text-white'}`
                         }
                         to='/addBlog'
                     >
@@ -40,12 +40,12 @@ const Navbar = () => {
                 
         }
         <li><NavLink className={({ isActive }) =>
-            `flex items-center gap-x-0.5  ${isActive ? 'text-lime-400 font-bold' : 'text-white'}`
+            `flex items-center gap-x-0.5  ${isActive ? 'text-yellow-400 font-bold' : 'text-white'}`
         } to='/featuredBlogs'>Featured Blogs</NavLink></li>
         {
             user && <>
                 <li> <NavLink className={({ isActive }) =>
-                    `flex items-center gap-0 ${isActive ? 'text-lime-400 font-bold' : 'text-white'}`
+                    `flex items-center gap-0 ${isActive ? 'text-yellow-400 font-bold' : 'text-white'}`
                 } to='/wishlist'> WishList</NavLink></li>
             </>
         }
@@ -64,7 +64,7 @@ const Navbar = () => {
       
     }
     return (
-        <div className={`navbar bg-purple-500  w-[80%] mx-auto p-2 md:p-4`}>
+        <div className={`navbar bg-sky-500  w-[80%] mx-auto p-2 md:p-4`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost p-0 sm:p-2 ml-1 lg:hidden">
@@ -90,9 +90,9 @@ const Navbar = () => {
                 {/* <div className="avatar w-12 h-8 md:w-20 md:h-14">
                     <img className="w-full h-full overflow-hidden rounded-xl object-cover" src={logo} alt="" />
                 </div> */}
-                <div>
-                    <h2>Blog</h2>
-                </div>
+                
+                <div className=" w-12 h-8 md:w-20 md:h-14"><img className="w-full h-full overflow-hidden rounded-xl object-cover" src={logo} alt="" /></div>
+            
 
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -116,11 +116,7 @@ const Navbar = () => {
                                     </Tooltip>
 
                                 </div>
-                                {/* {showTooltip && (
-                                    <div className="absolute mr-4 top-16 text-sm text-lime-400 bg-white p-2 rounded-lg border ">
-                                        {user?.displayName}
-                                    </div>
-                                )} */}
+                               
 
                             </div>
                             :

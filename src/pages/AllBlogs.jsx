@@ -13,7 +13,7 @@ const AllBlogs = () => {
     useEffect(() => {
       const fetchAllBlogs = async () => {
         const { data } = await axios.get(
-          `http://localhost:5000/blogs?category=${category}&search=${search}`
+          `https://assignment-11-server-one-kohl.vercel.app/blogs?category=${category}&search=${search}`
         )
         setBlogs(data)
       }

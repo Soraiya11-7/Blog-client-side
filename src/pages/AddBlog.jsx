@@ -44,12 +44,12 @@ const AddBlog = () => {
 
         const newBlog = { title, category, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo };
 
-        console.log(newBlog);
+        // console.log(newBlog);
 
         try {
             const response = await axiosSecure.post(`/blogs`,
                 newBlog)
-            console.log(response);
+            // console.log(response);
             if (response.data?.insertedId) {
                 Swal.fire({
                     title: "Success!",
@@ -65,7 +65,7 @@ const AddBlog = () => {
             toast.error(errorMessage)
         }
 
-        // fetch("http://localhost:5000/blogs", {
+        // fetch("https://assignment-11-server-one-kohl.vercel.app/blogs", {
         //     method: "POST",
         //     headers: {
         //         'content-type': 'application/json'

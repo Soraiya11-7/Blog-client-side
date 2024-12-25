@@ -6,15 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      transformOrigin: {
-        'center': 'center',
-      },
-      rotate: {
-        'x-180': '180deg',
-      },
-      perspective: {
-        '1000': '1000px',
-      },
     },
   },
   plugins: [

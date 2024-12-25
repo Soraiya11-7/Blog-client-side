@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthProviderContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast, ToastContainer } from "react-toastify";
-import axios from "axios";
+// import axios from "axios";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Card = ({ blog}) => {
@@ -34,29 +34,20 @@ const Card = ({ blog}) => {
 
                     try {
                         const response = await axiosSecure.post("/wishlist", newWishList);
-                  
+                    
                         if (response.data.insertedId) {
-                          Swal.fire({
-                            title: "Success!",
-                            text: "Blog added on Wishlist Successfully",
-                            icon: "success",
-                            confirmButtonText: "Cool",
+                          toast.success("Blog added on Wishlist Successfully", {
+                            position: "top-center",
+                            autoClose: 2000,
                           });
                         }
                       } catch (err) {
-                        
-                        if (err.response && err.response?.status === 400) {
-                          toast.error(err.response.data || "Failed to add to wishlist", {
-                            position: "top-center",
-                            autoClose: 2000,
-                          });
-                        } else {
-                          // Handle unexpected errors
-                          toast.error("An unexpected error occurred. Please try again.", {
-                            position: "top-center",
-                            autoClose: 2000,
-                          });
-                        }
+                        console.log(err);
+                        const errorMessage = err.message ||  err.response?.data?.message || "Failed to add to wishlist";
+                        toast.error(errorMessage, {
+                          position: "top-center",
+                          autoClose: 2000,
+                        });
                       
                       }
                     }
@@ -95,9 +86,6 @@ const Card = ({ blog}) => {
                            
                                 <button onClick={handleAddToWishList} className=" ml-2 bg-purple-500 mt-4 p-2 text-white text-sm font-medium rounded-lg">Add Wishlist</button>
                            
-                                
-
-
                             </div>
                         </div>
                     </div>

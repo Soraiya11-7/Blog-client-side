@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from '../components/Table';
+import { toast } from 'react-toastify';
 const FeaturedBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
@@ -10,10 +11,11 @@ const FeaturedBlogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/featuredBlogs');
+      const { data } = await axios.get('https://assignment-11-server-one-kohl.vercel.app/featuredBlogs');
       setBlogs(data);
     } catch (error) {
-      console.error('Error fetching featured blogs:', error);
+       const errorMessage = error.response?.data?.message || error.message || 'Something went wrong!';
+        toast.error(errorMessage);
     }
   };
 

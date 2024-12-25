@@ -27,7 +27,7 @@ const BlogDetails = () => {
 
     const fetchBlogData = async () => {
      try {
-        const { data } = await axios.get(`http://localhost:5000/blog/${id}`)
+        const { data } = await axios.get(`https://assignment-11-server-one-kohl.vercel.app/blog/${id}`)
         setBlog(data)
         } catch (err) {
           // console.error(err);

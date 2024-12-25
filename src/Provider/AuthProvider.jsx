@@ -50,7 +50,7 @@ useEffect(() =>{
         if (currentUser?.email) {
             const user = { email: currentUser.email }
 
-            axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+            axios.post('https://assignment-11-server-one-kohl.vercel.app/jwt', user, { withCredentials: true })
                 .then(res => {
                     // console.log('login token', res.data);
                     setLoading(false);
@@ -59,7 +59,7 @@ useEffect(() =>{
         else{
             //logout
             
-            axios.post('http://localhost:5000/logout', {}, { withCredentials: true })
+            axios.post('https://assignment-11-server-one-kohl.vercel.app/logout', {}, { withCredentials: true })
                 .then(res => {
                     // console.log('logout',res.data);
                     setLoading(false);

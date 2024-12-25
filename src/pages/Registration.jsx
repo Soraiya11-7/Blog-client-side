@@ -73,10 +73,8 @@ const Registration = () => {
                         //save new user to the DB
                         const newUser = { name, email, image, createdAt };
 
-                        // console.log(newUser);
-                        // data send to server
 
-                        fetch("http://localhost:5000/users", {
+                        fetch("https://assignment-11-server-one-kohl.vercel.app/users", {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json'

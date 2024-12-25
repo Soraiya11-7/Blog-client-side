@@ -65,7 +65,7 @@ const AddUpdate = () => {
 
         try {
             const response = await axiosSecure.put(`/blog/${_id}`, newBlog)
-            console.log(response);
+            // console.log(response);
             if (response.data?.modifiedCount) {
                 Swal.fire({
                     title: "Success!",
@@ -82,29 +82,6 @@ const AddUpdate = () => {
             // console.log(err)
             toast.error(err.message)
         }
-
-
-        // fetch(`http://localhost:5000/blog/${_id}`, {
-        //     method:"PUT",
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newBlog)
-        //    })
-        //    .then(res => res.json())
-        //    .then(data => {
-        //     // console.log(data);
-        //     if(data.modifiedCount > 0){
-        //         Swal.fire({
-        //             title: 'Success!',
-        //             text: 'Blog Updated Successfully',
-        //             icon: 'success',
-        //             confirmButtonText: 'Cool'
-        //           })
-
-        //           navigate(`/blog/${id}`);
-        //     }
-        //    })
 
 
     };

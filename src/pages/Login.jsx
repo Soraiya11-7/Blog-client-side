@@ -31,7 +31,7 @@ const Login = () => {
 
                 const loginInfo = {email, lastSignInTime};
 
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://assignment-11-server-one-kohl.vercel.app/users`, {
                     method:"PATCH",
                     headers: {
                         'content-type': 'application/json'

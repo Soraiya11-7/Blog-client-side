@@ -4,7 +4,7 @@ import { AuthProviderContext } from '../Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://assignment-11-server-one-kohl.vercel.app',
     withCredentials: true
   });
 
@@ -31,7 +31,7 @@ const useAxiosSecure = () => {
             }
             return Promise.reject(error);
         })
-    },[signOutUser])
+    },[signOutUser,navigate])
     return instance;
 };
 

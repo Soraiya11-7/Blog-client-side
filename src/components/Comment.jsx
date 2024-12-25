@@ -29,7 +29,7 @@ const Comment = ({ id, onCommentAdded }) => {
             try {
                 const response = await axiosSecure.post(`/commentList`,
                     newComment)
-                console.log(response);
+                // console.log(response);
                 if (response.data?.insertedId) {
                     Swal.fire({
                         title: "Success!",
