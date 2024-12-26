@@ -42,12 +42,20 @@ const Card = ({ blog }) => {
                     });
                 }
             } catch (err) {
-                console.log(err);
-                const errorMessage = err.message || err.response?.data?.message || "Failed to add to wishlist";
-                toast.error(errorMessage, {
-                    position: "top-center",
-                    autoClose: 2000,
-                });
+                if(err.response?.data?.message){
+                    toast.error(err.response?.data?.message || "Failed to add to wishlist", {
+                        position: "top-center",
+                        autoClose: 2000,
+                    });
+                }
+                else{
+                    const errMessage = err.response?.data || "Failed to add to wishlist";
+                    toast.error(errMessage, {
+                        position: "top-center",
+                        autoClose: 2000,
+                    });
+                }
+                
 
             }
         }
