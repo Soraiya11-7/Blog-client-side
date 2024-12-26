@@ -24,7 +24,7 @@ const AllBlogs = () => {
     return (
         <div className='w-[80%] mx-auto py-10'>
             {/* Search and Category Filter */}
-            <div className="flex items-center justify-between my-10">
+            <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-y-0 items-start sm:items-center justify-between mt-10 mb-12">
                 <input
                     type="text"
                     placeholder="Search by title"

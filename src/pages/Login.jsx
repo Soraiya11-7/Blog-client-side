@@ -121,7 +121,7 @@ const Login = () => {
 
                     </div>
                     <div className="form-control mt-6">
-                        <button className="p-2 rounded-xl  bg-purple-500 text-white text-base sm:text-lg font-bold">Login</button>
+                        <button className="p-2 rounded-xl  bg-sky-500 text-white text-base sm:text-lg font-bold">Login</button>
                     </div>
                 </form>
                 <div className="flex items-center mb-4 w-[80%] mx-auto">
@@ -130,7 +130,7 @@ const Login = () => {
                     <div className="flex-grow border-t-2 border-black"></div>
                 </div>
                 <div className='flex justify-center items-center mb-3'>
-                    <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-xl border text-base sm:text-lg hover:border-purple-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
+                    <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-xl border text-base sm:text-lg hover:border-sky-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
                 </div>
                 {/* <ToastContainer /> */}
                 <h2 className='text-sm sm:text-base text-center mb-3'>New to this website? <Link to='/auth/register' className='text-blue-500'>Create an account</Link></h2>

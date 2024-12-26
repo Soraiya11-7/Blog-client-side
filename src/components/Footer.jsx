@@ -3,7 +3,7 @@ import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900  pt-10">
+    <footer className="bg-black  pt-10">
       <div className=" mx-auto text-center w-[80%] pb-10 text-white">
        
         <h2 className="text-2xl font-bold mb-4">InsightSphere</h2>
@@ -15,20 +15,20 @@ const Footer = () => {
         <div className="flex justify-center gap-2 sm:gap-4 mb-8">
           <button
             onClick={() => window.open('https://www.facebook.com/', '_blank')}
-            className="btn btn-circle  hover:bg-sky-400 transition-all border border-sky-600"
+            className="btn btn-circle  hover:bg-sky-400 transition-all border-2 border-sky-600"
           >
             <FaFacebook className="text-xl" />
           </button>
           <button
             onClick={() => window.open('https://github.com/', '_blank')}
-            className="btn btn-circle  hover:bg-sky-400 transition-all border border-sky-600"
+            className="btn btn-circle  hover:bg-sky-400 transition-all border-2 border-sky-600"
           >
             <FaGithub className="text-xl" />
           </button>
          
           <button
             onClick={() => window.open('https://www.linkedin.com/', '_blank')}
-            className="btn btn-circle  hover:bg-sky-400 transition-all border border-sky-600"
+            className="btn btn-circle  hover:bg-sky-400 transition-all border-2 border-sky-600"
           >
             <FaLinkedin className="text-xl" />
           </button>

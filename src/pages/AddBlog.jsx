@@ -65,35 +65,15 @@ const AddBlog = () => {
             toast.error(errorMessage)
         }
 
-        // fetch("https://assignment-11-server-one-kohl.vercel.app/blogs", {
-        //     method: "POST",
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newBlog)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Blog added Successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Cool'
-        //             })
-        //             navigate('/');
-        //         }
-        //     })
-
+      
 
     };
 
     return (
         <div className=" py-12 w-[80%] mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-3">Add a New Blog</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6">Add a New Blog</h2>
             {/* <h3 className='text-sm sm:text-lg  text-center mb-10'> Submit detailed reviews for your favorite games effortlessly</h3> */}
-            <form onSubmit={handleSubmit} className='bg-slate-300 py-10 px-6 shadow-lg rounded-xl' >
+            <form onSubmit={handleSubmit} className='bg-slate-200 py-10 px-6 shadow-lg rounded-xl' >
                 {/* form name and Blog Cover Image/Thumbnail */}
                 <div className=" md:flex mb-4 md:mb-8">
                     <div className="form-control md:w-1/2 mb-4 md:mb-0">
@@ -152,7 +132,7 @@ const AddBlog = () => {
                 </div>
 
 
-                <input type="submit" value="Submit Blog" className="btn btn-block bg-purple-500 text-white font-bold border-none" />
+                <input type="submit" value="Submit Blog" className="btn btn-block bg-sky-600 text-white font-bold border-none" />
             </form>
             {/* <ToastContainer /> */}
         </div>

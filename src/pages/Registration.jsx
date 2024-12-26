@@ -200,7 +200,7 @@ const Registration = () => {
                         </label>
                     } */}
                     <div className="form-control mt-6">
-                        <button className="p-2 rounded-xl  bg-purple-500 text-white text-base sm:text-lg font-bold">Register</button>
+                        <button className="p-2 rounded-xl  bg-sky-500 text-white text-base sm:text-lg font-bold">Register</button>
                     </div>
                 </form>
                 <div className="flex items-center mb-4 w-[80%] mx-auto">
@@ -210,7 +210,7 @@ const Registration = () => {
                 </div>
 
                 <div className='flex justify-center items-center mb-3'>
-                    <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-xl border hover:border-purple-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
+                    <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-xl border hover:border-sky-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
                 </div>
                 {/* <ToastContainer /> */}
 

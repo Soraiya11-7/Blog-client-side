@@ -69,7 +69,7 @@ const AddUpdate = () => {
             if (response.data?.modifiedCount) {
                 Swal.fire({
                     title: "Success!",
-                    text: "Data Updated Successfully!!!",
+                    text: "Blog Updated Successfully!!!",
                     icon: "success",
                     confirmButtonText: "Cool",
                 });
@@ -88,9 +88,9 @@ const AddUpdate = () => {
 
     return (
         <div className=" py-12 w-[80%] mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-3">Update a New Blog</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6">Update a New Blog</h2>
             {/* <h3 className='text-sm sm:text-lg  text-center mb-10'> Submit detailed reviews for your favorite games effortlessly</h3> */}
-            <form onSubmit={handleSubmit} className='bg-slate-300 py-10 px-6 shadow-lg rounded-xl' >
+            <form onSubmit={handleSubmit} className='bg-slate-200 py-10 px-6 shadow-lg rounded-xl' >
                 {/* form name and Blog Cover Image/Thumbnail */}
                 <div className=" md:flex mb-4 md:mb-8">
                     <div className="form-control md:w-1/2 mb-4 md:mb-0">
@@ -150,7 +150,7 @@ const AddUpdate = () => {
                 </div>
 
 
-                <input type="submit" value="Submit Blog" className="btn btn-block bg-purple-500 text-white font-bold border-none" />
+                <input type="submit" value="Submit Blog" className="btn btn-block bg-sky-600 text-white font-bold border-none" />
             </form>
 
             {/* <ToastContainer /> */}
