@@ -6,9 +6,9 @@ The **Blog Platform API** is a backend server designed to manage blog posts, use
 
 ## Live URL
 
-Netlify: [Blog Live](#)
+Netlify: [Blog Live](https://classy-crostata-0cf8d9.netlify.app/)
 
-Firebase: [Live Link 1](#) OR [Live Link 2](#)
+Firebase: [Live Link 1](https://simple-firebase-6b2b7.firebaseapp.com/) OR [Live Link 2](https://simple-firebase-6b2b7.web.app/)
 
 
 ## Key Features
