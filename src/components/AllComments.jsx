@@ -31,7 +31,7 @@ const AllComments = ({ id, commentsUpdated }) => {
             ) : (
                 commentData.map((data, index) => (
                     <LazyLoad key={index} height={200} once debounce={500} >
-                        <div  className="flex flex-col p-6 gap-2 mb-3 my-3 border border-xl bg-gradient-to-r from-black via-yellow-700 to-sky-300 text-white rounded-xl ">
+                        <div  className="flex flex-col p-6 gap-2 mb-3 my-3 border border-xl bg-gradient-to-br from-black via-gray-900  to-sky-500 text-white rounded-xl ">
                        <div className='flex gap-2'>
                        <img src={data.commentOwnerImg} alt="User Avatar" className="w-8 h-8 rounded-full border-2" />
                        <p className="font-semibold text-sm sm:text-base">{data.commentOwnerName}</p>

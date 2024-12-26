@@ -9,7 +9,7 @@ import { toast, ToastContainer } from "react-toastify";
 // import axios from "axios";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
-const Card = ({ blog }) => {
+const Card2 = ({ blog }) => {
     const { _id, title, category, shortDetails, coverImage, bloggerName, userLogo } = blog || {};
     const location = useLocation();
     // console.log(location);
@@ -63,7 +63,8 @@ const Card = ({ blog }) => {
     };
 
     return (
-        <div className="w-full mx-auto flex justify-center items-center " >
+        <div className="w-full mx-auto flex justify-center items-center " data-aos="flip-left"
+        data-aos-easing="ease-out-cubic">
             <div className="shadow-xl w-full h-full rounded-lg bg-white overflow-hidden ">
                 {/* Header.................... */}
 
@@ -71,9 +72,9 @@ const Card = ({ blog }) => {
                     <img src={coverImage} className="h-full w-full object-cover overflow-hidden rounded-t-lg" alt="coverImage" />
                 </div>
 
-                <div className=" bg-white pb-3 text-left w-full">
+                <div className=" bg-white  pb-3 text-left w-full">
                     {/* Card Content...................... */}
-                    <div className="relative bg-white p-2 w-[92%] text-left mx-auto shadow-xl rounded-b-lg h-auto sm:min-h-[200px] flex flex-col sm:flex-grow   ">
+                    <div className="relative bg-white  p-2 w-[92%] text-left mx-auto shadow-xl rounded-b-lg h-auto sm:min-h-[200px] flex flex-col sm:flex-grow   ">
                         <p className="text-sm text-sky-600 font-bold uppercase mb-2 sm:mb-3 ">{category}</p>
                         <h3 className="text-base md:text-lg font-semibold h-auto sm:min-h-[30px] sm:flex-grow ">{title}</h3>
 
@@ -108,4 +109,4 @@ const Card = ({ blog }) => {
     );
 };
 
-export default Card;
+export default Card2;

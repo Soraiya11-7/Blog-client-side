@@ -1,14 +1,11 @@
 
 import { easeOut, motion } from "framer-motion";
-import img1 from '../assets/banner_1.jpeg'
-import img2 from '../assets/banner_2.jpeg'
 import img3 from '../assets/banner_3.jpeg'
 const Banner = () => {
 
   return (
-      <div className="mb-12" >
-
-<div className="rounded-b-lg w-full h-[220px] sm:h-[300px] md:h-[410px] relative">
+    <div className="" >
+      <div className="rounded-b-lg w-full h-[220px] sm:h-[300px] md:h-[410px] relative">
         {/* Background Image */}
         <img
           src={img3}
@@ -41,7 +38,7 @@ const Banner = () => {
           </p>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 // const Banner= () => {

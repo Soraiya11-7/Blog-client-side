@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
 // import { useLoaderData } from 'react-router-dom';
 import axios from 'axios';
+import LazyLoad from 'react-lazyload';
 
 const AllBlogs = () => {
     // const allBlogs = useLoaderData();
@@ -56,10 +57,13 @@ const AllBlogs = () => {
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {
-                            blogs.map((blog) => (
-                                <Card key={blog._id}
-                                    blog={blog} ></Card>)
-                            )
+                            blogs.map((blog,index) => (
+                                <LazyLoad key={index} height={200} once debounce={400} >
+                                    <Card 
+                                    blog={blog} ></Card>
+                                </LazyLoad>
+                                
+                            ))
                         }
                     </div>)
             }
