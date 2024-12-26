@@ -6,12 +6,11 @@ import { motion } from 'framer-motion';
 const ExtraOne = () => {
     return (
         <div className="">
-          {/* Tips Section with Animation */}
-          <section className="tips-section bg-gray-100 py-10">
-            <div className="container mx-auto px-6">
+          <section className=" bg-gray-100 py-14 rounded-t-xl">
+            <div className="w-full mx-auto px-6">
               {/* Title Animation............................. */}
               <motion.h2 
-                className="text-xl sm:2xl md:text-3xl font-extrabold text-center mb-4 text-blue-600 tracking-wide" 
+                className="text-xl sm:2xl md:text-3xl font-extrabold text-center mt-5 mb-4 text-blue-600 tracking-wide" 
                 initial={{ opacity: 0, y: -50 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 1 }}
@@ -19,7 +18,7 @@ const ExtraOne = () => {
                 Tips for Successful Blogging
               </motion.h2>
     
-              {/* Subtitle Animation */}
+              {/* Subtitle Animation .........................*/}
               <motion.p 
                 className="text-base w-[90%] md:w-[70%] mx-auto text-center text-gray-700 mb-8 " 
                 initial={{ opacity: 0 }} 

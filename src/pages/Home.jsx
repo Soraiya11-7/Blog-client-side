@@ -7,6 +7,7 @@ import ExtraOne from '../components/ExtraOne';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import ContactForm from '../components/ContactForm';
 
 const Home = () => {
     useEffect(() => {
@@ -20,7 +21,7 @@ const Home = () => {
             <Banner></Banner>
             <RecentBlogs></RecentBlogs>
            <ExtraOne></ExtraOne>
-            
+            <ContactForm></ContactForm>
             <Newsletter></Newsletter>
              
            

@@ -22,7 +22,7 @@ const RecentBlogs = () => {
   };
 
   return (
-    <div className="container mx-auto pt-14 pb-2 bg-slate-300 " >
+    <div className="w-full mx-auto pt-14  bg-slate-300 rounded-b-lg " >
       <h1 className="text-3xl font-bold text-center mb-10">Recent Blogs</h1>
       {
         blogs.length === 0 ? (
