@@ -24,10 +24,19 @@ const WishList = () => {
       setWishlist(data);
      
     } catch (err) {
-      // console.error(err);
-      // console.log(err);
-      const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
-      toast.error(errorMessage);
+      if (err.response?.data?.message) {
+        toast.error(err.response?.data?.message || "Failed to add a new Blog", {
+          position: "top-center",
+          autoClose: 2000,
+        });
+      }
+      else {
+        const errMessage = err.response?.data || "Failed to add a new Blog";
+        toast.error(errMessage, {
+          position: "top-center",
+          autoClose: 2000,
+        });
+      }
     }
     
   }
@@ -49,8 +58,19 @@ const WishList = () => {
         toast.success('Data Deleted Successfully!!!');
         fetchAllBlogs(); 
       } catch (err) {
-        // console.error(err);
-        toast.error(err.response?.data?.message || err.message);
+        if (err.response?.data?.message) {
+          toast.error(err.response?.data?.message || "Failed to add a new Blog", {
+            position: "top-center",
+            autoClose: 2000,
+          });
+        }
+        else {
+          const errMessage = err.response?.data || "Failed to add a new Blog";
+          toast.error(errMessage, {
+            position: "top-center",
+            autoClose: 2000,
+          });
+        }
       }
     }
   };

@@ -23,7 +23,7 @@ const RecentBlogs = () => {
 
   return (
     <div className="w-full mx-auto pt-14  bg-slate-300 rounded-b-lg " >
-      <h1 className="text-3xl font-bold text-center mb-10">Recent Blogs</h1>
+      <h1 className="text-3xl font-bold text-center mb-10 text-sky-500">Recent Blogs</h1>
       {
         blogs.length === 0 ? (
           <div className="text-center my-3">

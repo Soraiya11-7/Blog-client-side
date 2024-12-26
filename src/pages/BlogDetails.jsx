@@ -6,6 +6,7 @@ import { AuthProviderContext } from '../Provider/AuthProvider';
 import axios from 'axios';
 import Comment from '../components/Comment';
 import AllComments from '../components/AllComments';
+import { toast } from 'react-toastify';
 // import { toast } from 'react-toastify';
 // import { h2 } from 'framer-motion/client';
 
@@ -30,10 +31,19 @@ const BlogDetails = () => {
             const { data } = await axios.get(`https://assignment-11-server-one-kohl.vercel.app/blog/${id}`)
             setBlog(data)
         } catch (err) {
-            // console.error(err);
-            // console.log(err);
-            //   const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
-            //   toast.error(errorMessage);
+            if (err.response?.data?.message) {
+                toast.error(err.response?.data?.message || "Failed to add a new Blog", {
+                    position: "top-center",
+                    autoClose: 2000,
+                });
+            }
+            else {
+                const errMessage = err.response?.data || "Failed to add a new Blog";
+                toast.error(errMessage, {
+                    position: "top-center",
+                    autoClose: 2000,
+                });
+            }
         }
     }
 
@@ -76,15 +86,15 @@ const BlogDetails = () => {
                                 </p>
                             </div>
 
-                            
-                            <div className='text-left mb-4'>  
-                                   <p className="text-gray-900 text-sm font-semibold">Writer:
-                                   <span className="font-medium text-pink-500"> {bloggerName}</span>
-                               </p>
 
-                               </div>
+                            <div className='text-left mb-4'>
+                                <p className="text-gray-900 text-sm font-semibold">Writer:
+                                    <span className="font-medium text-pink-500"> {bloggerName}</span>
+                                </p>
 
-                               {/* <hr /> */}
+                            </div>
+
+                            {/* <hr /> */}
 
                             {/* Blog Details */}
                             <h2 className='mb-2'>

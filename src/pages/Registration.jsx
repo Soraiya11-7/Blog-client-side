@@ -95,7 +95,7 @@ const Registration = () => {
                             })
 
 
-                        navigate('/addBlog');
+                        navigate(location?.state ? location.state : '/');
                     })
                     .catch((err) => {
                         const errorMessage = err.message;

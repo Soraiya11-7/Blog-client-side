@@ -16,7 +16,10 @@ const AllComments = ({ id, commentsUpdated }) => {
            setCommentData(data);
 
         } catch (error) {
-            toast.error('Failed to fetch comment data.');
+            toast.error('Failed to fetch comment data.', {
+                position: "top-center",
+                autoClose: 2000,
+            });
         }
         
     };

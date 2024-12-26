@@ -13,7 +13,7 @@ const Banner = () => {
           className="w-full h-full object-cover rounded-b-lg"
         />
 
-        {/* Overlay with Text */}
+        {/* Overlay with Text............... */}
         <div className="absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-center p-4">
           <motion.h1
             animate={{ x: [0, 20, 0] }}
