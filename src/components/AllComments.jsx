@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import LazyLoad from 'react-lazyload';
+import { toast } from 'react-toastify';
 
 const AllComments = ({ id, commentsUpdated }) => {
     const [commentData, setCommentData] = useState([]);
@@ -15,7 +16,7 @@ const AllComments = ({ id, commentsUpdated }) => {
            setCommentData(data);
 
         } catch (error) {
-            // toast.error('Failed to fetch comment data.');
+            toast.error('Failed to fetch comment data.');
         }
         
     };

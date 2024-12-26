@@ -24,7 +24,7 @@ const WishList = () => {
       setWishlist(data);
      
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       // console.log(err);
       const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
       toast.error(errorMessage);

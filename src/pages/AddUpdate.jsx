@@ -79,8 +79,19 @@ const AddUpdate = () => {
             navigate(`/blog/${id}`);
 
         } catch (err) {
-            // console.log(err)
-            toast.error(err.message)
+            if (err.response?.data?.message) {
+                toast.error(err.response?.data?.message || "Failed to modified the Blog", {
+                    position: "top-center",
+                    autoClose: 2000,
+                });
+            }
+            else {
+                const errMessage = err.response?.data || "Failed to modified the Blog";
+                toast.error(errMessage, {
+                    position: "top-center",
+                    autoClose: 2000,
+                });
+            }
         }
 
 

@@ -18,7 +18,7 @@ const Comment = ({ id, onCommentAdded }) => {
         const form = e.target;
         const comment = form.comment.value;
 
-        const newComment = { comment, commentOwnerName: user?.displayName,commentOwnerEmail:user?.email, blog_id: id, commentOwnerImg: user?.photoURL };
+        const newComment = { comment, commentOwnerName: user?.displayName, commentOwnerEmail: user?.email, blog_id: id, commentOwnerImg: user?.photoURL };
 
         if (!user) {
             toast.warning("Not loggedIn");
@@ -41,8 +41,21 @@ const Comment = ({ id, onCommentAdded }) => {
                 e.target.reset();
                 onCommentAdded();
             } catch (err) {
-                const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
-                toast.error(errorMessage)
+                // const errorMessage = err.response?.data?.message || err.message || 'Something went wrong!';
+                // toast.error(errorMessage)
+                if (err.response?.data?.message) {
+                    toast.error(err.response?.data?.message || 'Something went wrong!', {
+                        position: "top-center",
+                        autoClose: 2000,
+                    });
+                }
+                else {
+                    const errMessage = err.response?.data || 'Something went wrong!';
+                    toast.error(errMessage, {
+                        position: "top-center",
+                        autoClose: 2000,
+                    });
+                }
             }
         }
 
