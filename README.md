@@ -41,10 +41,7 @@ The **Blog** Website Development Project aims to create a modern, responsive blo
 - Blog owners cannot comment on their own blogs.  
 
 💖 Wishlist  
-- Logged-in users can add or remove blogs from their wishlist.  
-
-🗄 MongoDB Database  
-- Stores users, blogs, comments, and wishlists.  
+- Logged-in users can add or remove blogs from their wishlist.   
 
 🌍 CORS Support  
 - Secure API access by restricting it to specific frontend domains.  
