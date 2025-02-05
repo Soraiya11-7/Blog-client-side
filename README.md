@@ -1,22 +1,12 @@
 # Blog Platform 
+![Banner Image](./public/Blogg.PNG)
 
 ## 📊  Project Overview
-
-
 The **Blog** Website Development Project aims to create a modern, responsive blog platform using React and Firebase. This project focuses on building dynamic web pages, user authentication, and an interactive blog experience. Front-end developers will collaborate with designers and back-end developers to bring mockups to life, ensuring a smooth, optimized experience across devices. The project also includes creating features such as user login, blog creation, wishlist management, and the ability to comment on blogs.
 
-## 🌍 Live Demo & Repository
-
-### 🚀 Live URL
-
-   - Netlify: [Blog ](https://classy-crostata-0cf8d9.netlify.app/)
-
-   - Firebase: [Live Link 1](https://simple-firebase-6b2b7.firebaseapp.com/) OR [Live Link 2](https://simple-firebase-6b2b7.web.app/)
-
-🔗 GitHub Repository: [GitHub Link](https://github.com/Soraiya11-7/Blog-client-side)
+🚀 Live Demo: [Blog](https://classy-crostata-0cf8d9.netlify.app/)
 
 
----
 
 ## 📖 Table of Contents
 - [Features](#features)
@@ -25,6 +15,7 @@ The **Blog** Website Development Project aims to create a modern, responsive blo
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Troubleshooting](#troubleshooting)
+- [Live demo](#live-demo)
 ---
 
 ## ✨ Features
@@ -170,6 +161,17 @@ The Blog Platform utilizes the following dependencies to implement key features,
 | JWT Expired Errors             | Refresh tokens or increase expiration in config.   |
 --- 
 
+## 🌍 Live Demo & Repository
+
+### 🚀 Live URL
+
+   - Netlify: [Blog](https://classy-crostata-0cf8d9.netlify.app/)
+
+   - Firebase: [Live Link 1](https://simple-firebase-6b2b7.firebaseapp.com/) OR [Live Link 2](https://simple-firebase-6b2b7.web.app/)
+
+🔗 GitHub Repository: [GitHub Link](https://github.com/Soraiya11-7/Blog-client-side)
+
+---
  
 🚀 Dive into the world of blogging with our Blog Platform! ✍️📚 Share your thoughts, connect with readers, and manage your posts effortlessly! 🌐💬
 
