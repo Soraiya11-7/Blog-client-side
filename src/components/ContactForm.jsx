@@ -32,7 +32,7 @@ const ContactSection = () => {
           </p>
           <button
             onClick={handleGetInTouchClick}
-            className="bg-black text-white px-4 md:px-6 py-2 rounded-full text-base md:text-xl hover:bg-sky-600 transition duration-300"
+            className="border border-black text-sky-500 dark:text-white px-4 md:px-6 py-2 rounded-full text-base md:text-xl hover:bg-sky-600 hover:text-white font-semibold transition duration-300"
           >
             Get in Touch
           </button>
@@ -90,7 +90,7 @@ const ContactSection = () => {
             <input
               type="submit"
               value="Submit"
-              className="bg-sky-500 text-white px-2 md:px-6 py-1 md:py-2 rounded-full text-xl hover:bg-sky-600 transition duration-300 border-none"
+              className=" bg-sky-500 mt-2 p-2 text-white font-medium rounded-lg text-base  hover:bg-sky-600 transition duration-300 "
             />
           </form>
 

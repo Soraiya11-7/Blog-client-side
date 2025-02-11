@@ -75,13 +75,9 @@ const BlogDetails = () => {
 
                 {/* Blog Card */}
                 <div className='w-full mx-auto bg-white rounded-lg shadow-lg overflow-hidden'>
-                    <div className=" flex flex-col md:flex-row justify-between ">
+                    <div className=" flex flex-col-reverse md:flex-row justify-between ">
 
-                        <div className="h-[220px] sm:h-[300px] md:min-h-[440px] w-full md:w-[48%] mx-auto md:mx-0 border rounded-lg p-3">
-                            <img src={coverImage} className="h-full w-full object-cover border overflow-hidden rounded-lg " alt="coverImage" />
-
-                        </div>
-
+                        
 
                         {/* Blog Information.................................. */}
                         <div className="p-2 w-full md:w-[51%] mx-auto">
@@ -89,8 +85,10 @@ const BlogDetails = () => {
                             <div className="mb-2">
                                 <h2 className="text-base sm:text-xl lg:text-2xl font-bold text-gray-800">{title}</h2>
                             </div>
+                            <p className="font-normal text-base mb-4 text-black w-[98%]"> {shortDetails}</p>
 
-                            <div className=" mb-2">
+
+                            <div className=" mb-1">
                                 <p className="text-gray-900 text-sm md:text-base font-semibold">Category:
                                     <span className="font-bold uppercase text-sky-500"> {category}</span>
                                 </p>
@@ -98,28 +96,20 @@ const BlogDetails = () => {
 
 
                             <div className='text-left mb-4'>
-                                <p className="text-gray-900 text-sm font-semibold">Writer:
-                                    <span className="font-medium text-pink-500"> {bloggerName}</span>
+                                <p className="text-gray-900 text-sm font-semibold">Owner:
+                                    <span className="font-medium text-sky-600"> {bloggerName}</span>
                                 </p>
 
                             </div>
 
-                            {/* <hr /> */}
+                           
 
                             {/* Blog Details */}
-                            <h2 className='mb-2'>
-                                <span className="border-b-4 md:border-b-2 border-sky-400 text-sm md:text-base font-semibold text-black ">Short Details
-                                </span>
-                            </h2>
-                            <p className="font-normal text-sm mb-5 md:overflow-y-scroll  md:h-[60px] p-2 bg-slate-50 border rounded-sm text-black w-[98%]"> {shortDetails}</p>
-
-                            <div className=''>
-                                <h2 className='mb-2'>
-                                    <span className="border-b-4 md:border-b-2 border-sky-400 text-sm md:text-base font-semibold text-black ">Long Details
-                                    </span>
-                                </h2>
-                                <p className="md:overflow-y-scroll md:h-[170px] font-normal text-sm p-2 bg-slate-50 border rounded-t-sm rounded-b-lg text-black w-[98%]"> {longDetails}</p>
-                            </div>
+                           
+                         
+                               
+                                <p className=" font-normal text-base rounded-t-sm rounded-b-lg text-black w-[90%]"> {longDetails}</p>
+                          
 
 
                             {/* <div className="text-gray-700 font-semibold mb-6">
@@ -129,6 +119,12 @@ const BlogDetails = () => {
 
 
                         </div>
+
+                        <div className="h-[220px] sm:h-[300px] md:min-h-[400px] w-full md:w-[48%] mx-auto md:mx-0 border rounded-lg p-3">
+                            <img src={coverImage} className="h-full w-full object-cover border overflow-hidden rounded-lg " alt="coverImage" />
+
+                        </div>
+
 
 
                     </div>

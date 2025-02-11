@@ -62,10 +62,10 @@ const Comment = ({ id, onCommentAdded }) => {
     };
 
     return (
-        <div className='  bg-slate-300  border border-red-600 '>
-            <div className='w-[80%] mx-auto py-2 px-6 shadow-lg rounded-xl'>
+        <div className=' '>
+            <div className='w-[80%] mx-auto py-2 px-6 shadow-lg rounded-xl border border-black'>
             <form onSubmit={handleSubmit} className='' >
-                <div className="form-control w-[90%] mx-auto my-5">
+                <div className="form-control w-[90%] mx-auto my-5 ">
                     <textarea name="comment" placeholder="write a comment here" className="input input-bordered w-full text-xs sm:text-base" required />
                 </div>
 

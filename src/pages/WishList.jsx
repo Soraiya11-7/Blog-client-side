@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Skeleton from "react-loading-skeleton";
+import { MdOutlineReadMore } from "react-icons/md";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -128,9 +129,9 @@ const WishList = () => {
                   
                    <button
                       onClick={() => navigate(`/blog/${blog.blog_id}`)}
-                      className=" text-center text-white bg-sky-600 p-1 rounded-lg transition-all duration-300"
+                      className=" text-center text-sky-500 hover:text-black  transition-all duration-300"
                     >
-                      View
+                      <MdOutlineReadMore className="text-2xl font-bold " /> 
                     </button>
                    
                     </div>

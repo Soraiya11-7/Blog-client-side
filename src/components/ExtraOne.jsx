@@ -34,7 +34,7 @@ const ExtraOne = () => {
                   <h3 className="font-bold text-lg md:text-xl lg:text-2xl mb-4 tracking-wide mt-6">
                     Consistency is Key
                   </h3>
-                  <p className="text-sm font-medium leading-snug opacity-80">
+                  <p className="text-sm font-medium leading-snug opacity-80 sm:w-[80%]">
                     Post regularly to keep your audience engaged and returning for more content.
                   </p>
                 </motion.li>
@@ -49,7 +49,7 @@ const ExtraOne = () => {
                   <h3 className="font-bold text-lg md:text-xl lg:text-2xl mb-4 tracking-wide mt-6">
                     Focus on Quality
                   </h3>
-                  <p className="text-sm font-medium leading-snug opacity-80">
+                  <p className="text-sm font-medium leading-snug opacity-80 sm:w-[80%]">
                     Write in-depth articles that provide value to your readers and solve their problems.
                   </p>
                 </motion.li>
@@ -64,7 +64,7 @@ const ExtraOne = () => {
                   <h3 className="font-bold text-lg md:text-xl lg:text-2xl mb-4 tracking-wide mt-6">
                     Promote on Social Media
                   </h3>
-                  <p className="text-sm font-medium leading-snug opacity-80">
+                  <p className="text-sm font-medium leading-snug opacity-80 sm:w-[80%]">
                     Share your posts on various social media platforms to increase visibility and traffic.
                   </p>
                 </motion.li>

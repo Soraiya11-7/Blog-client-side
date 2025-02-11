@@ -25,7 +25,7 @@ const AllComments = ({ id, commentsUpdated }) => {
     };
 
     return (
-        <div className='w-full md:w-[80%] md:ml-4 p-2 md:p-4'>
+        <div className='w-full md:w-[70%] md:ml-4 p-2 md:p-4'>
           
         <div className=''>
             {commentData.length === 0 ? (
