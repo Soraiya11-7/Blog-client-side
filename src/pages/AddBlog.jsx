@@ -81,7 +81,8 @@ const AddBlog = () => {
     };
 
     return (
-        <div className=" py-12 container w-[90%] mx-auto">
+        <div className='dark:bg-gray-700 dark:text-white'>
+            <div className=" py-12 container w-[90%] mx-auto ">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6">Add a New Blog</h2>
             {/* <h3 className='text-sm sm:text-lg  text-center mb-10'> Submit detailed reviews for your favorite games effortlessly</h3> */}
             <form onSubmit={handleSubmit} className='bg-slate-200 py-10 px-6 shadow-lg rounded-xl' >
@@ -112,7 +113,7 @@ const AddBlog = () => {
                         <label className="label">
                             <span className="label-text">Category</span>
                         </label>
-                        <select name='category' defaultValue={'Select category'} className="select select-bordered w-full text-xs sm:text-base" required>
+                        <select name='category' defaultValue={'Select category'} className="text-black select select-bordered w-full text-xs sm:text-base" required>
                             <option disabled>Select category</option>
                             <option value="Fashion">Fashion</option>
                             <option value="Inspiration">Inspiration</option>
@@ -147,6 +148,8 @@ const AddBlog = () => {
             </form>
             {/* <ToastContainer /> */}
         </div>
+        </div>
+        
     );
 };
 

@@ -17,7 +17,7 @@ const Home = () => {
         })
       },[]);
     return (
-        <div className='w-full mx-auto dark:shadow-xl dark:shadow-black dark:bg-gray-900  text-black dark:text-white'>
+        <div className='w-full mx-auto dark:shadow-xl dark:shadow-black dark:bg-gray-700  text-black dark:text-white'>
             <Banner></Banner>
             <RecentBlogs></RecentBlogs>
            <ExtraOne></ExtraOne>

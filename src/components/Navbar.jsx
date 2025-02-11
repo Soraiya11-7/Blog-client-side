@@ -152,7 +152,7 @@ const Navbar = () => {
                             <div className="flex items-center">
                                 <div className="h-10 w-12 md:h-12 md:w-14 rounded-full px-1 relative" id='click' onMouseEnter={() => setShowTooltip(true)}
                                     onMouseLeave={() => setShowTooltip(false)}>
-                                    <img className=" h-full w-full  rounded-full object-cover overflow-hidden" src={user?.photoURL}
+                                    <img className=" h-full border w-full  rounded-full object-cover overflow-hidden" src={user?.photoURL}
                                         alt="Avatar image"
                                     />
                                     <Tooltip className="z-10" anchorSelect="#click" clickable>

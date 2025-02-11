@@ -5,7 +5,7 @@ const ContactSection = () => {
   const [showContactForm, setShowContactForm] = useState(false);
 
   const handleGetInTouchClick = () => {
-  
+
     setShowContactForm(true);
   };
 
@@ -13,11 +13,11 @@ const ContactSection = () => {
     setShowContactForm(false);
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     toast.success("Thank you for reaching out to us!", {
-        position: "top-center",
-        autoClose: 2000,
+      position: "top-center",
+      autoClose: 2000,
     });
     setShowContactForm(false);
   }
@@ -26,7 +26,7 @@ const ContactSection = () => {
     <div className="bg-gray-100 dark:bg-gray-950 text-center py-12 px-2 md:px-4  w-[90%] mx-auto">
       {!showContactForm ? (
         <div className="w-[90%] md:w-[80%] mx-auto py-16 border border-sky-600 dark:bg-sky-500  dark:text-white rounded-lg shadow-lg">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-sky-500">Let's Talk!</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-sky-500 dark:text-white">Let's Talk!</h2>
           <p className="text-sm sm:text-base md:text-lg mb-6">
             Want to collaborate? We would love to hear from you.
           </p>
@@ -38,9 +38,9 @@ const ContactSection = () => {
           </button>
         </div>
       ) : (
-        <div className="max-w-lg mx-auto p-6 bg-white border-2 border-sky-500 rounded-lg shadow-lg">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-500 mb-4">Contact Us</h2>
-          <form  onSubmit={handleSubmit}>
+        <div className="max-w-lg mx-auto p-6 text-right bg-white border-2 border-sky-500 rounded-lg shadow-lg">
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-center font-bold text-sky-500 mb-4">Contact Us</h2>
+          <form onSubmit={handleSubmit} className="text-left">
             <div className="grid gap-4 mb-4">
               <div>
                 <label htmlFor="firstName" className="block text-sm sm:text-base md:text-lg">
@@ -49,6 +49,7 @@ const ContactSection = () => {
                 <input
                   type="text"
                   id="firstName"
+                  placeholder="Enter your first name"
                   className="w-full p-2 border border-gray-300 rounded-md"
                 />
               </div>
@@ -59,6 +60,7 @@ const ContactSection = () => {
                 <input
                   type="text"
                   id="lastName"
+                  placeholder="Enter your last name"
                   className="w-full p-2 border border-gray-300 rounded-md"
                 />
               </div>
@@ -69,6 +71,7 @@ const ContactSection = () => {
                 <input
                   type="email"
                   id="email"
+                  placeholder="Enter your email"
                   className="w-full p-2 border border-gray-300 rounded-md"
                 />
               </div>
@@ -79,21 +82,21 @@ const ContactSection = () => {
                 <textarea
                   id="message"
                   rows="4"
+                  placeholder="Write your message here..."
                   className="w-full p-2 border border-gray-300 rounded-md"
                 ></textarea>
               </div>
             </div>
-            <input type="submit" value="Submit" className="bg-sky-500 text-white px-2 md:px-6 py-1 md:py-2 rounded-full text-xl hover:bg-sky-600 transition duration-300 border-none" />
-            {/* <button
+            <input
               type="submit"
-              className="bg-sky-500 text-white px-6 py-2 rounded-full text-xl hover:bg-sky-600 transition duration-300"
-            >
-              Submit
-            </button> */}
+              value="Submit"
+              className="bg-sky-500 text-white px-2 md:px-6 py-1 md:py-2 rounded-full text-xl hover:bg-sky-600 transition duration-300 border-none"
+            />
           </form>
+
           <button
             onClick={handleCloseContactForm}
-            className="mt-4 text-gray-500 hover:text-sky-500"
+            className="mt-4 text-black  hover:bg-black hover:text-white border border-black px-2 md:px-6 py-1 rounded-full"
           >
             Close
           </button>

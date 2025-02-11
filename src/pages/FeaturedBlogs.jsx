@@ -32,7 +32,8 @@ const FeaturedBlogs = () => {
   // }
 
   return (
-    <div className="container w-[90%] mx-auto py-10">
+    <div className='dark:bg-gray-700 dark:text-white'>
+        <div className="container w-[90%] mx-auto py-10">
       <h1 className="text-2xl sm:text-3xl font-bold text-center mb-3">Featured Blogs</h1>
       <h3 className='text-center text-base mb-12 w-[80%] md:w-[60%] mx-auto'>Discover handpicked top blogs sorted dynamically by relevance, displayed in a responsive, sortable table</h3>
       {
@@ -52,6 +53,8 @@ const FeaturedBlogs = () => {
 
 
     </div>
+    </div>
+  
   );
 };
 

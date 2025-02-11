@@ -98,8 +98,9 @@ const AddUpdate = () => {
     };
 
     return (
-        <div className=" py-12 container w-[90%] mx-auto">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6">Update a New Blog</h2>
+        <div className='dark:bg-gray-700 '>
+             <div className=" py-12 container w-[90%] mx-auto">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 dark:text-white">Update a New Blog</h2>
             {/* <h3 className='text-sm sm:text-lg  text-center mb-10'> Submit detailed reviews for your favorite games effortlessly</h3> */}
             <form onSubmit={handleSubmit} className='bg-slate-200 py-10 px-6 shadow-lg rounded-xl' >
                 {/* form name and Blog Cover Image/Thumbnail */}
@@ -167,6 +168,8 @@ const AddUpdate = () => {
             {/* <ToastContainer /> */}
 
         </div>
+        </div>
+       
     );
 };
 

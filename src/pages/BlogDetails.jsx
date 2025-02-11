@@ -64,7 +64,8 @@ const BlogDetails = () => {
 
 
     return (
-        <div className='container w-[90%] mx-auto'>
+        <div className='dark:bg-gray-700 dark:text-white'>
+            <div className='container w-[90%] mx-auto'>
             <div className="  py-10">
                 {/* Page Title */}
                 <div className="text-center  mb-12">
@@ -107,14 +108,14 @@ const BlogDetails = () => {
 
                             {/* Blog Details */}
                             <h2 className='mb-2'>
-                                <span className="border-b-4 md:border-b-2 border-sky-400 text-sm md:text-base font-semibold ">Short Details
+                                <span className="border-b-4 md:border-b-2 border-sky-400 text-sm md:text-base font-semibold text-black ">Short Details
                                 </span>
                             </h2>
                             <p className="font-normal text-sm mb-5 md:overflow-y-scroll  md:h-[60px] p-2 bg-slate-50 border rounded-sm text-black w-[98%]"> {shortDetails}</p>
 
                             <div className=''>
                                 <h2 className='mb-2'>
-                                    <span className="border-b-4 md:border-b-2 border-sky-400 text-sm md:text-base font-semibold ">Long Details
+                                    <span className="border-b-4 md:border-b-2 border-sky-400 text-sm md:text-base font-semibold text-black ">Long Details
                                     </span>
                                 </h2>
                                 <p className="md:overflow-y-scroll md:h-[170px] font-normal text-sm p-2 bg-slate-50 border rounded-t-sm rounded-b-lg text-black w-[98%]"> {longDetails}</p>
@@ -163,7 +164,7 @@ const BlogDetails = () => {
                     }
 
                     <div className='my-2'>
-                        <h2 className='text-2xl ml-4 mt-8 border-b-2 w-[80%] font-bold'>All Comments </h2>
+                        <h2 className='text-2xl ml-4 mt-8 border-b-2 w-[80%] font-bold text-black'>All Comments </h2>
                         {/* <hr /> */}
 
                         <AllComments key={id} id={id} commentsUpdated={commentsUpdated}></AllComments>
@@ -172,6 +173,8 @@ const BlogDetails = () => {
                 </div>
             </div>
         </div>
+        </div>
+        
     );
 };
 
