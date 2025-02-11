@@ -6,12 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 // import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import Skeleton from "react-loading-skeleton";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
-  const { user } = useContext(AuthProviderContext); // Get the logged-in user from the AuthContext
+  const { user, loading } = useContext(AuthProviderContext); // Get the logged-in user from the AuthContext
+  console.log(loading);
 
   useEffect(() => {
     fetchAllBlogs();
@@ -78,9 +80,12 @@ const WishList = () => {
 
 
   return (
-    <div className="w-[80%] mx-auto py-10">
+    <div className="container w-[90%] mx-auto py-10">
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">My wishlist</h2>
-      {wishlist.length === 0 ? (
+      {loading ? (<div className="flex items-center min-h-screen justify-center">
+                          <Skeleton count={3} height={120} width={200} />
+                      </div>) :
+      wishlist.length === 0 ? (
         <div className="text-center">
           <h3 className="text-xl text-gray-500">Your wishlist is empty.</h3>
           <p>Add blogs to your wishlist from the Blog Details page.</p>

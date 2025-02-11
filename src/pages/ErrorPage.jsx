@@ -5,7 +5,7 @@ const ErrorPage = () => {
     // console.log(error);
 
     return (
-        <div className="text-center flex flex-col justify-center items-center mt-20 container mx-auto max-w-6xl">
+        <div className="text-center flex flex-col justify-center items-center mt-20 container w-[90%] mx-auto">
             
             <p className="text-3xl sm:text-5xl font-bold mb-3 sm:mb-5">
                 <i>{error.statusText || error.message}</i>

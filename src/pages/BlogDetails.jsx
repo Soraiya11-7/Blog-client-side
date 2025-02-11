@@ -7,6 +7,7 @@ import axios from 'axios';
 import Comment from '../components/Comment';
 import AllComments from '../components/AllComments';
 import { toast } from 'react-toastify';
+import Skeleton from 'react-loading-skeleton';
 // import { toast } from 'react-toastify';
 // import { h2 } from 'framer-motion/client';
 
@@ -14,7 +15,7 @@ const BlogDetails = () => {
     const { id } = useParams();
     // console.log(id);
     const navigate = useNavigate();
-    const { user } = useContext(AuthProviderContext)
+    const { user, loading } = useContext(AuthProviderContext)
     const [blog, setBlog] = useState({})
     const [email, setUserEmail] = useState(user?.email || '');
     const [commentsUpdated, setCommentsUpdated] = useState(false);
@@ -54,17 +55,25 @@ const BlogDetails = () => {
 
     const { _id, title, category, longDetails, shortDetails, coverImage, bloggerEmail, bloggerName, userLogo, } = blog || {};
 
+    if(loading){
+        return <div className="flex items-center min-h-screen justify-center">
+            <Skeleton count={3} height={120} width={200} />
+            {/* <span className="loading loading-infinity loading-lg flex items-center justify-center"></span> */}
+        </div>
+    }
+
+
     return (
-        <div className='w-[80%] mx-auto'>
-            <div className=" bg-gradient-to-tr from-sky-500 via-indigo-300 to-black py-10">
+        <div className='container w-[90%] mx-auto'>
+            <div className="  py-10">
                 {/* Page Title */}
-                <div className="text-center text-white mb-12">
+                <div className="text-center  mb-12">
                     <h1 className="text-2xl md:text-4xl font-bold">Blog Details</h1>
                     <p className="text-xs sm:text-base md:text-lg">Detailed information about the blog </p>
                 </div>
 
                 {/* Blog Card */}
-                <div className='w-full sm:w-[90%] md:w-[98%]  mx-auto bg-white rounded-lg shadow-lg overflow-hidden'>
+                <div className='w-full mx-auto bg-white rounded-lg shadow-lg overflow-hidden'>
                     <div className=" flex flex-col md:flex-row justify-between ">
 
                         <div className="h-[220px] sm:h-[300px] md:min-h-[440px] w-full md:w-[48%] mx-auto md:mx-0 border rounded-lg p-3">
@@ -141,7 +150,7 @@ const BlogDetails = () => {
 
                 </div>
 
-                <div className='w-full sm:w-[90%] md:w-[85%]  mx-auto bg-slate-50 mt-5 rounded-xl'>
+                <div className='w-full mx-auto bg-slate-50 mt-5 rounded-xl'>
 
                     <label className="label">
                         <span className="label-text font-bold text-xl ml-4">Leave a Comment</span>

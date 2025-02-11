@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 // import axios from 'axios';
 import Card from '../components/Card';
 // import { useLoaderData } from 'react-router-dom';
 import axios from 'axios';
 import LazyLoad from 'react-lazyload';
+import Skeleton from 'react-loading-skeleton';
+import { AuthProviderContext } from '../Provider/AuthProvider';
 
 const AllBlogs = () => {
     // const allBlogs = useLoaderData();
     const [blogs, setBlogs] = useState([]);
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState('');
+    const { loading } = useContext(AuthProviderContext)
 
     useEffect(() => {
       const fetchAllBlogs = async () => {
@@ -20,10 +23,18 @@ const AllBlogs = () => {
       }
       fetchAllBlogs()
     }, [category, search])
+
+    // if(loading){
+    //     return <div className="flex items-center min-h-screen justify-center">
+    //         <Skeleton count={3} height={120} width={200} />
+    //         {/* <span className="loading loading-infinity loading-lg flex items-center justify-center"></span> */}
+    //     </div>
+    // }
+
   
 
     return (
-        <div className='w-[80%] mx-auto py-10'>
+        <div className='container w-[90%] mx-auto py-10'>
             {/* Search and Category Filter */}
             <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-y-0 items-start sm:items-center justify-between mt-10 mb-12">
                 <input
@@ -49,6 +60,9 @@ const AllBlogs = () => {
 
             {/* Blog Cards */}
             {
+                 loading ? (<div className="flex items-center min-h-screen justify-center">
+                    <Skeleton count={3} height={120} width={200} />
+                </div>) :
                 blogs.length === 0 ? (
                     <div className="text-center">
                         <h3 className="text-xl text-gray-500">No blogs Found.</h3>

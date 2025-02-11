@@ -21,7 +21,7 @@ const Navbar = () => {
                 `flex items-center gap-x-1  ${isActive ? 'text-yellow-400 font-bold' : 'text-white '}`
             }>Home</NavLink></li>
         <li><NavLink className={({ isActive }) =>
-            `flex items-center gap-x-0.5  ${isActive ? 'text-yellow-400 font-bold' : 'text-white'}`
+            `flex items-center gap-x-1  ${isActive ? 'text-yellow-400 font-bold' : 'text-white'}`
         } to='/blogs'>All Blogs</NavLink></li>
 
         {
@@ -40,7 +40,7 @@ const Navbar = () => {
                 
         }
         <li><NavLink className={({ isActive }) =>
-            `flex items-center gap-x-0.5  ${isActive ? 'text-yellow-400 font-bold' : 'text-white'}`
+            `flex items-center gap-x-1  ${isActive ? 'text-yellow-400 font-bold' : 'text-white'}`
         } to='/featuredBlogs'>Featured Blogs</NavLink></li>
         {
             user && <>
@@ -64,7 +64,8 @@ const Navbar = () => {
       
     }
     return (
-        <div className={`navbar bg-sky-500  w-[80%] mx-auto p-2 md:p-4`}>
+        <div className="bg-sky-500 container mx-auto sticky top-0 z-50">
+            <div className={`navbar  container w-[90%] mx-auto p-2 md:p-4`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost p-0 sm:p-2 ml-1 lg:hidden">
@@ -96,7 +97,7 @@ const Navbar = () => {
 
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 -space-x-1">
+                <ul className="menu menu-horizontal px-1 space-x-2">
                     {links}
 
                 </ul>
@@ -137,6 +138,8 @@ const Navbar = () => {
             </div>
 
         </div>
+        </div>
+
     );
 };
 

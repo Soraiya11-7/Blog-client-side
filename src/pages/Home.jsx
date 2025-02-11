@@ -17,7 +17,7 @@ const Home = () => {
         })
       },[]);
     return (
-        <div className='w-[80%] mx-auto'>
+        <div className='w-full mx-auto'>
             <Banner></Banner>
             <RecentBlogs></RecentBlogs>
            <ExtraOne></ExtraOne>

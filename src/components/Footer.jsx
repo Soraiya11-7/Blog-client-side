@@ -3,8 +3,8 @@ import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-black  pt-10">
-      <div className=" mx-auto text-center w-[80%] pb-10 text-white">
+    <footer className="bg-black  pt-10 container mx-auto">
+      <div className=" container mx-auto text-center w-[90%] pb-10 text-white border">
        
         <h2 className="text-2xl font-bold mb-4">InsightSphere</h2>
         <p className="mb-8 mx-auto text-sm sm:text-base w-[80%] md:w-[50%]">

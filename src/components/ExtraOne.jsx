@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 
 const ExtraOne = () => {
     return (
-        <div className="">
-          <section className=" bg-gray-100 py-14 rounded-t-xl">
-            <div className="w-full mx-auto px-6">
+        <div className="w-[90%] mx-auto">
+          <section className="  py-14 rounded-t-xl">
+            <div className="w-full mx-auto border border-red-500">
               {/* Title Animation............................. */}
               <motion.h2 
                 className="text-xl sm:2xl md:text-3xl font-extrabold text-center mt-5 mb-4 text-blue-600 tracking-wide" 

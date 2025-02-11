@@ -5,16 +5,16 @@ const Banner = () => {
 
   return (
     <div className="" >
-      <div className="rounded-b-lg w-full h-[220px] sm:h-[300px] md:h-[410px] relative">
+      <div className="rounded-b-lg w-full overflow-hidden h-[230px] sm:h-[320px] md:h-[420px] relative ">
         {/* Background Image */}
         <img
           src={img3}
           alt="Banner Background"
-          className="w-full h-full object-cover rounded-b-lg"
+          className="w-full h-full object-cover rounded-b-lg "
         />
 
         {/* Overlay with Text............... */}
-        <div className="absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-center p-4">
+        <div className="absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-center p-4 ">
           <motion.h1
             animate={{ x: [0, 20, 0] }}
             transition={{ duration: 2, ease: easeOut, repeat: Infinity }}

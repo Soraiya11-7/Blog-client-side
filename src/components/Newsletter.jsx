@@ -16,7 +16,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="bg-gray-100  py-14 bg-gradient-to-r from-yellow-600 via-red-500 to-pink-500 text-white" data-aos="zoom-out">
+    <div className=" py-14 bg-gradient-to-r from-yellow-600 via-red-500 to-pink-500 text-white container w-[90%] mx-auto" >
       <div className="max-w-lg mx-auto text-center">
         <h2 className="text-xl sm:text-2xl text-white md:text-3xl font-semibold  mb-2">
           Subscribe to Our Newsletter
