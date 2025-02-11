@@ -23,10 +23,10 @@ const ContactSection = () => {
   }
 
   return (
-    <div className="bg-gray-100 text-center py-12 px-2 md:px-4  w-[90%] mx-auto">
+    <div className="bg-gray-100 dark:bg-gray-950 text-center py-12 px-2 md:px-4  w-[90%] mx-auto">
       {!showContactForm ? (
-        <div className="w-[90%] md:w-[80%] mx-auto py-16 bg-sky-500 text-white rounded-lg shadow-lg">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">Let's Talk!</h2>
+        <div className="w-[90%] md:w-[80%] mx-auto py-16 border border-sky-600 dark:bg-sky-500  dark:text-white rounded-lg shadow-lg">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-sky-500">Let's Talk!</h2>
           <p className="text-sm sm:text-base md:text-lg mb-6">
             Want to collaborate? We would love to hear from you.
           </p>

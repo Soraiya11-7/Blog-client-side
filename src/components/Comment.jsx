@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { AuthProviderContext } from '../Provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const Comment = ({ id, onCommentAdded }) => {
@@ -62,7 +62,7 @@ const Comment = ({ id, onCommentAdded }) => {
     };
 
     return (
-        <div className='  bg-slate-300 border border-red-600 '>
+        <div className='  bg-slate-300  border border-red-600 '>
             <div className='w-[80%] mx-auto py-2 px-6 shadow-lg rounded-xl'>
             <form onSubmit={handleSubmit} className='' >
                 <div className="form-control w-[90%] mx-auto my-5">

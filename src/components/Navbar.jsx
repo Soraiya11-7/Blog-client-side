@@ -3,15 +3,46 @@ import { useContext, useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { AuthProviderContext } from "../Provider/AuthProvider";
 import logo from "../assets/bl2.png"
+import { FaMoon, FaSun } from "react-icons/fa";
 
 
 const Navbar = () => {
-    const { user, signOutUser } = useContext(AuthProviderContext);
+    const { user, signOutUser, darkMode,setDarkMode } = useContext(AuthProviderContext);
 
     const location = useLocation();
     const [showTooltip, setShowTooltip] = useState(false);
     // const location = useLoaderData();
     const navigate = useNavigate();
+
+
+    const [theme, setTheme] = useState('light');
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            setDarkMode(true);
+            document.documentElement.classList.add('dark');
+        } else {
+            setDarkMode(false);
+            document.documentElement.classList.remove('dark');
+        }
+
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme(theme === 'light' ? 'dark' : 'light');
+    };
+
+
+    // Check if the current route is the home page
+    // const isHomePage = location.pathname === "/";
+
+    // Navbar background classes
+    const navbarClass = 
+         darkMode
+            ? "bg-gray-900 text-white"
+            : "bg-sky-500 "
+      
+
     
 
     const links = <>
@@ -64,11 +95,11 @@ const Navbar = () => {
       
     }
     return (
-        <div className="bg-sky-500 container mx-auto sticky top-0 z-50">
-            <div className={`navbar  container w-[90%] mx-auto p-2 md:p-4`}>
+        <div className={`${navbarClass} container mx-auto sticky top-0 z-50`}>
+            <div className={`navbar  container w-[90%] mx-auto `}>
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost p-0 sm:p-2 ml-1 lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost p-0 sm:p-1 ml-1 lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -93,7 +124,19 @@ const Navbar = () => {
                 </div> */}
                 
                 <div className=" w-12 h-8 md:w-20 md:h-14"><img className="w-full h-full overflow-hidden rounded-xl object-cover" src={logo} alt="" /></div>
-            
+                <div className="">
+                <button
+                    onClick={toggleTheme}
+                    className="flex items-center ml-0 sm:ml-1 bg-white  p-1 rounded-full shadow-lg bg-gray-white dark:bg-gray-800 border-2 dark:border-white border-purple-800 transition-all duration-300"
+                >
+                    {theme === 'light' ? (
+                        <FaMoon className="text-yellow-500 text-base" />
+                    ) : (
+                        <FaSun className="text-orange-400 text-base" />
+                    )}
+                   
+                </button>
+            </div>
 
             </div>
             <div className="navbar-center hidden lg:flex">

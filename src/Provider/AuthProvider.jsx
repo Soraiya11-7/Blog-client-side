@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
 
 const [user,setUser] = useState(null);
 const [loading, setLoading] = useState(true);
+const [darkMode, setDarkMode] = useState(false);
 
 
 const  name = 'Blog';
@@ -77,6 +78,8 @@ useEffect(() =>{
 const authInfo = {
     name,
     user,
+    darkMode, 
+    setDarkMode,
     loading,
     setLoading,
     setUser,

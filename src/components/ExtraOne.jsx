@@ -10,17 +10,15 @@ const ExtraOne = () => {
             <div className="w-full mx-auto border border-red-500">
               {/* Title Animation............................. */}
               <motion.h2 
-                className="text-xl sm:2xl md:text-3xl font-extrabold text-center mt-5 mb-4 text-blue-600 tracking-wide" 
-                initial={{ opacity: 0, y: -50 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 1 }}
+                className="text-xl sm:2xl md:text-3xl font-extrabold text-center mt-5 mb-4 text-blue-500 tracking-wide" 
+               
               >
                 Tips for Successful Blogging
               </motion.h2>
     
               {/* Subtitle Animation .........................*/}
               <motion.p 
-                className="text-base w-[90%] md:w-[70%] mx-auto text-center text-gray-700 mb-8 " 
+                className="text-base w-[90%] md:w-[70%] mx-auto text-center text-gray-700 dark:text-white mb-8 " 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ delay: 0.5, duration: 1 }}

@@ -14,16 +14,16 @@ const Banner = () => {
         />
 
         {/* Overlay with Text............... */}
-        <div className="absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-center p-4 ">
+        <div className="absolute inset-0 bg-black dark:bg-gray-800 dark:bg-opacity-50 bg-opacity-80 flex flex-col justify-center items-center text-center p-4 ">
           <motion.h1
             animate={{ x: [0, 20, 0] }}
             transition={{ duration: 2, ease: easeOut, repeat: Infinity }}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white dark:text-black"
           >
             Express{" "}
             <motion.span
               animate={{
-                color: ["#ecff33", "#33ffe3", "#ff6133", "#ecff33"],
+                color: ["#a88d00", "#005f99","#a88d00"],
               }}
               transition={{ duration: 2, repeat: Infinity }}
               className="text-emerald-400"
@@ -32,7 +32,7 @@ const Banner = () => {
             </motion.span>{" "}
             Freely!
           </motion.h1>
-          <p className="mt-3 text-white text-sm md:text-lg w-[90%] md:w-[60%] mx-auto">
+          <p className="mt-3 text-white dark:text-black text-sm md:text-lg w-[90%] md:w-[60%] mx-auto">
             Dive into a world of stories, ideas, and inspiration crafted for
             curious minds.
           </p>

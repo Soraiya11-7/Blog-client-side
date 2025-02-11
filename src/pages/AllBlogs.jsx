@@ -34,7 +34,8 @@ const AllBlogs = () => {
   
 
     return (
-        <div className='container w-[90%] mx-auto py-10'>
+        <div className='dark:bg-gray-950 dark:text-white'>
+            <div className='container w-[90%] mx-auto py-10 '>
             {/* Search and Category Filter */}
             <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-y-0 items-start sm:items-center justify-between mt-10 mb-12">
                 <input
@@ -42,13 +43,13 @@ const AllBlogs = () => {
                     placeholder="Search by title"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="p-2 border"
+                    className="p-2 border "
                 />
                 <select
                     value={category}
                     id={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="p-2 border"
+                    className="p-2 border text-black "
                 >
                     <option value="">All Categories</option>
                     <option value="Fashion">Fashion</option>
@@ -82,6 +83,8 @@ const AllBlogs = () => {
                     </div>)
             }
         </div>
+        </div>
+        
     );
 };
 

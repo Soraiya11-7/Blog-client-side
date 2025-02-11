@@ -77,7 +77,7 @@ const Card2 = ({ blog }) => {
                     {/* Card Content...................... */}
                     <div className="relative bg-white  p-2 w-[92%] text-left mx-auto shadow-xl rounded-b-lg h-auto sm:min-h-[200px] flex flex-col sm:flex-grow   ">
                         <p className="text-sm text-sky-600 font-bold uppercase mb-2 sm:mb-2 ">{category}</p>
-                        <h3 className="text-base md:text-lg font-semibold h-auto sm:min-h-[50px] sm:flex-grow ">{title}</h3>
+                        <h3 className="text-base text-black md:text-lg font-semibold h-auto sm:min-h-[55px] sm:flex-grow ">{title}</h3>
 
 
                         <div className="mt-4 flex flex-col sm:flex-grow min-h-[120px] sm:min-h-[200px]  ">
