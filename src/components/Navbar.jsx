@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { AuthProviderContext } from "../Provider/AuthProvider";
 import logo from "../assets/bl2.png"
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaBlog, FaMoon, FaSun } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -123,19 +123,20 @@ const Navbar = () => {
                     <img className="w-full h-full overflow-hidden rounded-lg object-cover" src={logo} alt="" />
                 </div> */}
                 
-                <div className="flex justify-center mr-1 items-center">
+                <div className="flex justify-center -ml-2 md:-ml-0 mr-2 md:mr-3 items-center">
                     {/* <img className="w-full h-full overflow-hidden rounded-lg object-cover" src={logo} alt="" /> */}
-                    <h2 className="text-white font-bold text-2xl">Blog</h2>
+                    <FaBlog className="text-white text-xl sm:text-2xl mr-1" />
+                    <h2 className=" font-bold text-xl sm:text-2xl text-yellow-400">Blog</h2>
                     </div>
-                <div className="">
+                <div className="flex justify-center items-center mt-1">
                 <button
                     onClick={toggleTheme}
-                    className="flex items-center ml-0 sm:ml-1 bg-white  p-1 rounded-full shadow-lg bg-gray-white dark:bg-gray-800 border-2 border-white  transition-all duration-300"
+                    className="flex items-center  bg-white  p-0.5 rounded-full shadow-lg bg-gray-white dark:bg-gray-800 border border-white  transition-all duration-300"
                 >
                     {theme === 'light' ? (
-                        <FaMoon className="text-yellow-500 text-base" />
+                        <FaMoon className="text-yellow-500 text-xs sm:text-base" />
                     ) : (
-                        <FaSun className="text-orange-400 text-base" />
+                        <FaSun className="text-orange-400 text-xs sm:text-base" />
                     )}
                    
                 </button>
@@ -153,7 +154,7 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="flex items-center">
-                                <div className="h-10 w-12  rounded-full px-1 relative" id='click' onMouseEnter={() => setShowTooltip(true)}
+                                <div className="h-8 w-10 md:h-10 md:w-12  rounded-full px-1 relative" id='click' onMouseEnter={() => setShowTooltip(true)}
                                     onMouseLeave={() => setShowTooltip(false)}>
                                     <img className=" h-full border w-full  rounded-full object-cover overflow-hidden" src={user?.photoURL}
                                         alt="Avatar image"
@@ -168,16 +169,16 @@ const Navbar = () => {
                             </div>
                             :
 
-                            (<Link to='/auth/login' className="bg-white text-black  px-2 py-2 font-medium md:font-bold text-sm md:text-base rounded-lg hover:bg-sky-500 border hover:text-white">Login</Link>)
+                            (<Link to='/auth/login' className="bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg hover:bg-sky-500 border hover:text-white">Login</Link>)
                     }
 
                 </div>
                 <div>
                     {
                         user && user?.email ?
-                            (<button onClick={handleLogOut} className="bg-white text-black  px-2 py-2 font-medium md:font-bold text-sm md:text-base rounded-lg hover:bg-sky-500 border hover:text-white ">LogOut</button>)
+                            (<button onClick={handleLogOut} className="bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg hover:bg-sky-500 border hover:text-white ">LogOut</button>)
                             :
-                            (<Link to='/auth/register' className=" bg-white text-black  px-2 py-2 font-medium md:font-bold text-sm md:text-base rounded-lg hover:bg-sky-500 border hover:text-white ">Register</Link>)
+                            (<Link to='/auth/register' className=" bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg hover:bg-sky-500 border hover:text-white ">Register</Link>)
                     }
                 </div>
 
