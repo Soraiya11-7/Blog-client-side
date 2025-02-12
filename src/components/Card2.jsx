@@ -80,8 +80,8 @@ const Card2 = ({ blog }) => {
                         <h3 className="text-base text-black md:text-lg font-semibold h-auto sm:min-h-[55px] sm:flex-grow ">{title}</h3>
 
 
-                        <div className="mt-4 flex flex-col sm:flex-grow min-h-[120px] sm:min-h-[200px]  ">
-                            <p className="text-gray-600  text-sm h-auto sm:min-h-[50px] sm:flex-grow mb-4 ">
+                        <div className="mt-4 flex flex-col sm:flex-grow min-h-[120px] sm:min-h-[200px] xl:min-h-[180px] ">
+                            <p className="text-gray-600  text-sm h-auto sm:min-h-[50px] sm:flex-grow mb-4 xl:min-h-[40px]  ">
                                 <span>{shortDetails}</span>
                             </p>
                             <p className="text-xs sm:text-sm font-semibold text-gray-800 mb-3 ">By {bloggerName}</p>

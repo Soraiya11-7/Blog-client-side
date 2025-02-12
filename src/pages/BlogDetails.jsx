@@ -68,7 +68,7 @@ const BlogDetails = () => {
             <div className='container w-[90%] mx-auto'>
             <div className="  py-10">
                 {/* Page Title */}
-                <div className="text-center  mb-12">
+                <div className="text-center  mb-14">
                     <h1 className="text-2xl md:text-4xl font-bold">Blog Details</h1>
                     <p className="text-xs sm:text-base md:text-lg">Detailed information about the blog </p>
                 </div>

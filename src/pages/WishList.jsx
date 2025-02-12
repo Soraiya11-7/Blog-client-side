@@ -83,7 +83,7 @@ const WishList = () => {
   return (
     <div className="dark:bg-gray-700 dark:text-white">
       <div className="container w-[90%] mx-auto py-10">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">My wishlist</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">My wishlist</h2>
       {loading ? (<div className="flex items-center min-h-screen justify-center">
                           <Skeleton count={3} height={120} width={200} />
                       </div>) :

@@ -51,7 +51,7 @@ const Table = ({ blogs }) => {
                   <th
                     key={header.id}
                     onClick={header.column.getToggleSortingHandler()}
-                    className="border px-4 py-2 cursor-pointer"
+                    className="border border-black px-4 py-2 cursor-pointer"
                   >
                     {flexRender(
                       header.column.columnDef.header,

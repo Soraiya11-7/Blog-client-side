@@ -23,16 +23,16 @@ const ContactSection = () => {
   }
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-950 text-center py-12 px-2 md:px-4  w-[90%] mx-auto">
+    <div className="bg-gray-950 rounded-lg text-center py-12 my-2 px-2 md:px-4  w-[90%] mx-auto">
       {!showContactForm ? (
-        <div className="w-[90%] md:w-[80%] mx-auto py-16 border border-sky-600 dark:bg-sky-500  dark:text-white rounded-lg shadow-lg">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-sky-500 dark:text-white">Let's Talk!</h2>
-          <p className="text-sm sm:text-base md:text-lg mb-6">
+        <div className="w-[90%] md:w-[80%] bg-white  mx-auto py-16 border border-sky-600 dark:bg-sky-500  dark:text-white rounded-lg shadow-lg">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-sky-500 dark:text-white">Let's Talk!</h2>
+          <p className="text-sm sm:text-base md:text-lg mb-6 text-black">
             Want to collaborate? We would love to hear from you.
           </p>
           <button
             onClick={handleGetInTouchClick}
-            className="border border-black text-sky-500 dark:text-white px-4 md:px-6 py-2 rounded-full text-base md:text-xl hover:bg-sky-600 hover:text-white font-semibold transition duration-300"
+            className="border-2 border-black dark:border-white text-sky-500 dark:text-white px-4 md:px-6 py-2 rounded-full text-base md:text-xl dark:hover:bg-black hover:bg-sky-600 hover:text-white font-semibold transition duration-300"
           >
             Get in Touch
           </button>
