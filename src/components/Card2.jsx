@@ -76,15 +76,15 @@ const Card2 = ({ blog }) => {
                 <div className=" bg-white  pb-3 text-left w-full">
                     {/* Card Content...................... */}
                     <div className="relative bg-white  p-2 w-[92%] text-left mx-auto shadow-xl rounded-b-lg h-auto sm:min-h-[200px] flex flex-col sm:flex-grow   ">
-                        <p className="text-sm text-sky-600 font-bold uppercase mb-2 sm:mb-2 ">{category}</p>
+                        <p className="text-sm text-sky-600 font-bold uppercase mb-2  ">{category}</p>
                         <h3 className="text-base text-black md:text-lg font-semibold h-auto sm:min-h-[55px] sm:flex-grow ">{title}</h3>
 
 
-                        <div className="mt-4 flex flex-col sm:flex-grow min-h-[120px] sm:min-h-[200px] xl:min-h-[180px] ">
-                            <p className="text-gray-600  text-sm h-auto sm:min-h-[50px] sm:flex-grow mb-4 xl:min-h-[40px]  ">
+                        <div className="mt-2 flex flex-col sm:flex-grow min-h-[120px] sm:min-h-[200px] xl:min-h-[180px] ">
+                            <p className="text-gray-600  text-sm h-auto sm:min-h-[50px] sm:flex-grow mb-2 xl:min-h-[40px]  ">
                                 <span>{shortDetails}</span>
                             </p>
-                            <p className="text-xs sm:text-sm font-semibold text-gray-800 mb-3 ">By {bloggerName}</p>
+                            <p className="text-xs sm:text-sm font-semibold text-gray-800 mb-2 ">By {bloggerName}</p>
 
 
                             <div className=" px-4 text-center border-t-2 border-gray-300  my-4 sm:my-4 ">

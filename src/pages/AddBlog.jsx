@@ -83,9 +83,9 @@ const AddBlog = () => {
     return (
         <div className='dark:bg-gray-700 dark:text-white'>
             <div className=" py-12 container w-[90%] mx-auto ">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6">Add a New Blog</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-14">Add a New Blog</h2>
             {/* <h3 className='text-sm sm:text-lg  text-center mb-10'> Submit detailed reviews for your favorite games effortlessly</h3> */}
-            <form onSubmit={handleSubmit} className='bg-slate-200 py-10 px-6 shadow-lg rounded-xl' >
+            <form onSubmit={handleSubmit} className='bg-white border border-black dark:border-white text-black  py-10 px-6 shadow-lg rounded-xl' >
                 {/* form name and Blog Cover Image/Thumbnail */}
                 <div className=" md:flex mb-4 md:mb-8">
                     <div className="form-control md:w-1/2 mb-4 md:mb-0">
@@ -144,7 +144,7 @@ const AddBlog = () => {
                 </div>
 
 
-                <input type="submit" value="Submit Blog" className="btn btn-block bg-sky-600 text-white font-bold border-none" />
+                <input type="submit" value="Submit Blog" className="btn btn-block bg-sky-500 text-white font-bold border-none  hover:bg-sky-600" />
             </form>
             {/* <ToastContainer /> */}
         </div>

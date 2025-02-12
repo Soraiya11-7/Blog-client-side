@@ -50,7 +50,7 @@ const ContactSection = () => {
                   type="text"
                   id="firstName"
                   placeholder="Enter your first name"
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-black text-black rounded-lg"
                 />
               </div>
               <div>
@@ -61,7 +61,7 @@ const ContactSection = () => {
                   type="text"
                   id="lastName"
                   placeholder="Enter your last name"
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-black text-black rounded-lg"
                 />
               </div>
               <div>
@@ -72,7 +72,7 @@ const ContactSection = () => {
                   type="email"
                   id="email"
                   placeholder="Enter your email"
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-black text-black rounded-lg"
                 />
               </div>
               <div>
@@ -83,7 +83,7 @@ const ContactSection = () => {
                   id="message"
                   rows="4"
                   placeholder="Write your message here..."
-                  className="w-full p-2 border border-gray-300 rounded-md"
+                  className="w-full p-2 border border-black text-black rounded-lg"
                 ></textarea>
               </div>
             </div>

@@ -43,7 +43,7 @@ const Table = ({ blogs }) => {
   return (
     <div className="">
       <div className="overflow-x-auto">
-        <table className="table-auto w-full border-collapse border text-black bg-gray-50 border-black">
+        <table className="table-auto w-full border-collapse border text-black bg-white border-black">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id} className="bg-black text-white">

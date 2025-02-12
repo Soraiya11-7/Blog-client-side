@@ -7,7 +7,7 @@ import { AuthProviderContext } from '../Provider/AuthProvider';
 const FeaturedBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   const { user, loading } = useContext(AuthProviderContext);
-  console.log(loading);
+  
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -49,7 +49,7 @@ const FeaturedBlogs = () => {
         :
           blogs && blogs.length === 0 ? (
             <div className="text-center">
-              <h3 className="text-xl text-gray-500">No Blogs Found!!</h3>
+              <h3 className="text-xl text-gray-500 dark:text-white">No Blogs Found!!</h3>
             </div>
           ) :
             (<div>

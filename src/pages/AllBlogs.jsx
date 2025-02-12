@@ -59,7 +59,7 @@ const AllBlogs = () => {
                     placeholder="Search by title"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="p-2 border "
+                    className="p-2 border text-black "
                 />
                 <select
                     value={category}
@@ -79,7 +79,7 @@ const AllBlogs = () => {
                     value={sort}
                     id={sort}
                     onChange={(e) => setSort(e.target.value)}
-                    className="p-2 border"
+                    className="p-2 border text-black"
                 >
                     <option value="">Sort By</option>
                     <option value="alphabetical">Blog Name(alphabetical)</option>
@@ -88,12 +88,12 @@ const AllBlogs = () => {
 
             {/* Blog Cards */}
             {
-                 isLoading ? (<div className="flex items-center min-h-screen justify-center">
+                 isLoading ? (<div className="flex items-center h-screen justify-center">
                     <Skeleton count={3} height={120} width={200} />
                 </div>) :
                 blogs.length === 0 ? (
                     <div className="text-center">
-                        <h3 className="text-xl text-gray-500">No blogs Found.</h3>
+                        <h3 className="text-xl text-gray-500 dark:text-white">No blogs Found.</h3>
                         <p>Add New Blogs.</p>
                     </div>
                 ) : (

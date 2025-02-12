@@ -83,7 +83,7 @@ const BlogDetails = () => {
 
                     {/* Blog Card */}
                     {
-                        isLoading ? (<div className="flex items-center min-h-screen justify-center">
+                        isLoading ? (<div className="flex items-center h-screen justify-center">
                             <Skeleton count={3} height={120} width={200} />
                         </div>) :
                             <div>
@@ -150,7 +150,7 @@ const BlogDetails = () => {
                                             <div className='flex items-center justify-center my-6'>
                                                 <button
                                                     onClick={() => navigate(`/update/${id}`)}
-                                                    className="bg-gradient-to-r from-sky-500 to-blue-500 text-white  text-xs sm:text-sm md:text-base font-bold py-2 px-6 rounded-lg shadow-md "
+                                                    className="bg-sky-500 hover:bg-sky-600 text-white  text-xs sm:text-sm md:text-base font-bold py-2 px-6 rounded-lg shadow-md "
                                                 >
                                                     Update Blog
                                                 </button>
@@ -160,7 +160,7 @@ const BlogDetails = () => {
 
                                 </div>
 
-                                <div className='w-full mx-auto bg-slate-50 mt-5 rounded-xl'>
+                                <div className='w-full mx-auto bg-white mt-5 rounded-lg'>
 
                                     <label className="label">
                                         <span className="label-text font-bold text-xl md:text-2xl ml-4">Leave a Comment</span>

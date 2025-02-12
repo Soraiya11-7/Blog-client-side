@@ -15,7 +15,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="py-14 border-2 border-sky-500 bg-gray-100 container w-[90%] mx-auto rounded-lg">
+    <div className="py-14 border-2 border-sky-500 bg-white container w-[90%] mx-auto rounded-lg">
       <div className="max-w-lg mx-auto text-center">
         <h2 className="text-xl sm:text-2xl text-dark md:text-3xl text-sky-500 font-bold mb-2">
           Subscribe to Our Newsletter
@@ -32,14 +32,14 @@ const Newsletter = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="py-2 px-2 border border-sky-500 outline-none sm:rounded-l-lg  dark:bg-white dark:text-gray-800 bg-gray-900 text-white mb-3 sm:mb-0"
+                className="py-2 px-2 border border-black outline-none sm:rounded-l-lg  bg-gray-900 text-white mb-3 sm:mb-0"
                 required
               />
             </div>
             <div>
               <button
                 type="submit"
-                className="py-2 px-2 border border-sky-500 text-sky-500 dark:bg-sky-500 dark:text-black font-semibold sm:rounded-r-lg hover:bg-sky-600 hover:text-white"
+                className="py-2 px-2 border border-sky-500 bg-sky-500 font-semibold sm:rounded-r-lg hover:bg-sky-600 text-white"
               >
                 Subscribe
               </button>

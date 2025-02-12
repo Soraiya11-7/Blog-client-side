@@ -169,16 +169,16 @@ const Navbar = () => {
                             </div>
                             :
 
-                            (<Link to='/auth/login' className="bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg hover:bg-sky-500 border hover:text-white">Login</Link>)
+                            (<Link to='/auth/login' className="bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg  border hover:text-sky-500">Login</Link>)
                     }
 
                 </div>
                 <div>
                     {
                         user && user?.email ?
-                            (<button onClick={handleLogOut} className="bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg hover:bg-sky-500 border hover:text-white ">LogOut</button>)
+                            (<button onClick={handleLogOut} className="bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg  border hover:text-sky-500 ">LogOut</button>)
                             :
-                            (<Link to='/auth/register' className=" bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg hover:bg-sky-500 border hover:text-white ">Register</Link>)
+                            (<Link to='/auth/register' className=" bg-white text-black  px-2 py-2 font-medium md:font-bold text-xs md:text-base rounded-lg  border hover:text-sky-500 ">Register</Link>)
                     }
                 </div>
 

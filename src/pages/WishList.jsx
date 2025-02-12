@@ -87,13 +87,13 @@ const WishList = () => {
   return (
     <div className="dark:bg-gray-700 dark:text-white">
       <div className="container w-[90%] mx-auto py-10">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">My wishlist</h2>
-      {isLoading ? (<div className="flex items-center min-h-screen justify-center">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-14">My wishlist</h2>
+      {isLoading ? (<div className="flex items-center h-screen justify-center">
                           <Skeleton count={3} height={120} width={200} />
                       </div>) :
       wishlist.length === 0 ? (
         <div className="text-center">
-          <h3 className="text-xl text-gray-500">Your wishlist is empty.</h3>
+          <h3 className="text-xl text-gray-500 dark:text-white">Your wishlist is empty.</h3>
           <p>Add blogs to your wishlist from the Blog Details page.</p>
         </div>
       ) : (
@@ -101,28 +101,28 @@ const WishList = () => {
           <table className="table-auto w-full border-collapse border border-orange-950">
             <thead>
               <tr className="bg-gray-900 text-white ">
-                <th className="border border-black py-2 text-sm md:text-base lg:text-lg">No.</th>
+                <th className="border border-black py-2 text-lg">No.</th>
                
-                <th className="border border-black py-2 text-sm md:text-base lg:text-lg ">Blog Title</th>
-                <th className="border border-black px-1 py-2 text-sm md:text-base lg:text-lg">Category</th>
-                <th className="border border-black py-2 text-sm md:text-base lg:text-lg">Writer</th>
-                <th className="border border-black px-1 py-2 text-sm md:text-base lg:text-lg">Description</th>
+                <th className="border border-black py-2 text-lg ">Blog Title</th>
+                <th className="border border-black px-1 py-2 text-lg">Category</th>
+                <th className="border border-black py-2 text-lg">Writer</th>
+                <th className="border border-black px-1 py-2 text-lg">Description</th>
 
-                <th className="border border-black py-2 text-sm md:text-base lg:text-lg">Actions</th>
+                <th className="border border-black py-2 text-lg">Actions</th>
               </tr>
             </thead>
             <tbody>
               {wishlist.map((blog, index) => (
-                <tr key={blog._id} className="text-center text-black bg-gray-50">
-                  <td className="border border-black  py-2 text-sm md:text-base  ">{index + 1}</td>
+                <tr key={blog._id} className="text-center text-black bg-white">
+                  <td className="border border-black  py-2 text-base  ">{index + 1}</td>
                  
-                  <td className="border border-black  py-2 text-sm md:text-base ">{blog.title}</td>
-                  <td className="border border-black  py-2 text-sm md:text-base  ">{blog.category}</td>
+                  <td className="border border-black  py-2 text-base ">{blog.title}</td>
+                  <td className="border border-black  py-2 text-base  ">{blog.category}</td>
                  
-                  <td className="border border-black  py-2 text-sm md:text-base" >{blog.bloggerName}</td>
-                  <td className="border border-black  py-2 text-sm md:text-base  ">{blog.shortDetails}</td>
+                  <td className="border border-black  py-2 text-base" >{blog.bloggerName}</td>
+                  <td className="border border-black  py-2 text-base  ">{blog.shortDetails}</td>
 
-                  <td className="border border-black py-2 text-sm md:text-base  ">
+                  <td className="border border-black py-2 text-base  ">
                     <div className="flex justify-center items-center gap-2 md:gap-4">
                     <button
                       onClick={() => handleDelete(blog._id)}

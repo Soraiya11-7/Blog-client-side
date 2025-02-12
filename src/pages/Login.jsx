@@ -98,10 +98,10 @@ const Login = () => {
    
     return (
 
-        <div className=" container w-[90%] mx-auto flex justify-center py-8 items-center ">
-            <div className="card  w-[90%] sm:w-[60%] md:w-[50%] lg:w-[35%] mx-auto shadow-2xl p-1 sm:p-2">
+        <div className=" container w-[90%] mx-auto flex justify-center py-8 items-center  ">
+            <div className="rounded-lg  w-[90%] sm:w-[60%] md:w-[50%] lg:w-[35%] mx-auto shadow-2xl p-1 sm:p-2 bg-white z-10 border border-black">
                 <h1 className="text-xl sm:text-3xl font-bold text-center mt-3">Login now!</h1>
-                <form onSubmit={handleLogin} className="card-body">
+                <form onSubmit={handleLogin} className="card-body ">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
@@ -121,7 +121,7 @@ const Login = () => {
 
                     </div>
                     <div className="form-control mt-6">
-                        <button className="p-2 rounded-xl  bg-sky-500 text-white text-base sm:text-lg font-bold">Login</button>
+                        <button className="p-2 rounded-lg  bg-sky-500 text-white text-base sm:text-lg font-bold hover:text-black">Login</button>
                     </div>
                 </form>
                 <div className="flex items-center mb-4 w-[80%] mx-auto">
@@ -130,7 +130,7 @@ const Login = () => {
                     <div className="flex-grow border-t-2 border-black"></div>
                 </div>
                 <div className='flex justify-center items-center mb-3'>
-                    <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-xl border text-base sm:text-lg hover:border-sky-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
+                    <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-lg border text-base sm:text-lg hover:border-sky-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
                 </div>
                 {/* <ToastContainer /> */}
                 <h2 className='text-sm sm:text-base text-center mb-3'>New to this website? <Link to='/auth/register' className='text-blue-500'>Create an account</Link></h2>

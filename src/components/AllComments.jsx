@@ -40,7 +40,7 @@ const AllComments = ({ id, commentsUpdated }) => {
                 </div>) :
                     commentData.length === 0 ? (
                         <div className="text-center">
-                            <h3 className="text-base sm:text-xl ">No comment Found</h3>
+                            <h3 className="text-base sm:text-xl dark:text-white ">No comment Found</h3>
                         </div>
                     ) : (
                         commentData.map((data, index) => (

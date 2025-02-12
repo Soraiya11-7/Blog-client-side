@@ -152,7 +152,7 @@ const Registration = () => {
     return (
         <div className="container w-[90%] mx-auto py-10 flex justify-center items-center">
 
-            <div className="card bg-base-100 w-[90%] sm:w-[60%] md:w-[50%] lg:w-[35%] mx-auto shadow-2xl p-1 sm:p-2 ">
+            <div className="rounded-lg w-[90%] sm:w-[60%] md:w-[50%] lg:w-[35%] mx-auto shadow-2xl p-1 sm:p-2 bg-white z-10 border border-black ">
                 <h1 className="text-xl sm:text-3xl font-bold mt-3 text-center">Register now!</h1>
                 <form onSubmit={handleRegistration} className="card-body">
                     <div className="form-control">
@@ -200,7 +200,7 @@ const Registration = () => {
                         </label>
                     } */}
                     <div className="form-control mt-6">
-                        <button className="p-2 rounded-xl  bg-sky-500 text-white text-base sm:text-lg font-bold">Register</button>
+                        <button className="p-2 rounded-lg  bg-sky-500 text-white hover:text-black text-base sm:text-lg font-bold">Register</button>
                     </div>
                 </form>
                 <div className="flex items-center mb-4 w-[80%] mx-auto">
@@ -210,7 +210,7 @@ const Registration = () => {
                 </div>
 
                 <div className='flex justify-center items-center mb-3'>
-                    <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-xl border hover:border-sky-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
+                    <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-lg border hover:border-sky-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
                 </div>
                 {/* <ToastContainer /> */}
 
