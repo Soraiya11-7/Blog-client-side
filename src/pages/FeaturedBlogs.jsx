@@ -9,17 +9,23 @@ const FeaturedBlogs = () => {
   const { user, loading } = useContext(AuthProviderContext);
   console.log(loading);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+
   useEffect(() => {
     fetchBlogs();
   }, []);
 
   const fetchBlogs = async () => {
+    setIsLoading(true);
     try {
       const { data } = await axios.get('https://assignment-11-server-one-kohl.vercel.app/featuredBlogs');
       setBlogs(data);
     } catch (error) {
       const errorMessage = error.response?.data?.message || error.message || 'Something went wrong!';
       toast.error(errorMessage);
+    }finally {
+      setIsLoading(false);
     }
   };
 
@@ -37,7 +43,7 @@ const FeaturedBlogs = () => {
       <h1 className="text-2xl sm:text-3xl font-bold text-center mb-3">Featured Blogs</h1>
       <h3 className='text-center text-base mb-14 w-[80%] md:w-[60%] mx-auto'>Discover handpicked top blogs sorted dynamically by relevance, displayed in a responsive, sortable table</h3>
       {
-        loading ? (<div className="flex items-center min-h-screen justify-center">
+        isLoading ? (<div className="flex items-center min-h-screen justify-center">
           <Skeleton count={3} height={120} width={200} />
         </div>) 
         :

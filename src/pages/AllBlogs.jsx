@@ -12,17 +12,31 @@ const AllBlogs = () => {
     const [blogs, setBlogs] = useState([]);
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState('');
-    const { loading } = useContext(AuthProviderContext)
+    // const { loading } = useContext(AuthProviderContext)
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
       const fetchAllBlogs = async () => {
-        const { data } = await axios.get(
-          `https://assignment-11-server-one-kohl.vercel.app/blogs?category=${category}&search=${search}`
-        )
-        setBlogs(data)
+        setIsLoading(true);
+        try {
+            const { data } = await axios.get(
+                `https://assignment-11-server-one-kohl.vercel.app/blogs?category=${category}&search=${search}`
+              )
+              setBlogs(data)
+        }
+     catch (error) {
+        // console.error("Error fetching blogs:", error);
+      } finally {
+        setIsLoading(false);
       }
+       
+      };
       fetchAllBlogs()
     }, [category, search])
+
+    
+
+
 
     // if(loading){
     //     return <div className="flex items-center min-h-screen justify-center">
@@ -61,7 +75,7 @@ const AllBlogs = () => {
 
             {/* Blog Cards */}
             {
-                 loading ? (<div className="flex items-center min-h-screen justify-center">
+                 isLoading ? (<div className="flex items-center min-h-screen justify-center">
                     <Skeleton count={3} height={120} width={200} />
                 </div>) :
                 blogs.length === 0 ? (

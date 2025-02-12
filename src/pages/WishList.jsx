@@ -14,13 +14,15 @@ const WishList = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { user, loading } = useContext(AuthProviderContext); // Get the logged-in user from the AuthContext
-  console.log(loading);
+  // console.log(loading);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchAllBlogs();
   }, [user]);
 
   const fetchAllBlogs = async () => {
+    setIsLoading(true);
     // toast.error("errorMessage");
     try {
       const { data } = await axiosSecure.get(`/wishlist?email=${user.email}`)
@@ -40,6 +42,8 @@ const WishList = () => {
           autoClose: 2000,
         });
       }
+    }finally {
+      setIsLoading(false);
     }
     
   }
@@ -84,7 +88,7 @@ const WishList = () => {
     <div className="dark:bg-gray-700 dark:text-white">
       <div className="container w-[90%] mx-auto py-10">
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">My wishlist</h2>
-      {loading ? (<div className="flex items-center min-h-screen justify-center">
+      {isLoading ? (<div className="flex items-center min-h-screen justify-center">
                           <Skeleton count={3} height={120} width={200} />
                       </div>) :
       wishlist.length === 0 ? (
