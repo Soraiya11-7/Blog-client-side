@@ -78,7 +78,7 @@ const BlogDetails = () => {
                     {/* Page Title */}
                     <div className="text-center  mb-14">
                         <h1 className="text-2xl md:text-4xl font-bold">Blog Details</h1>
-                        <p className="text-xs sm:text-base md:text-lg">Detailed information about the blog </p>
+                        <p className="text-sm sm:text-base md:text-lg">Detailed information about the blog </p>
                     </div>
 
                     {/* Blog Card */}
@@ -98,7 +98,7 @@ const BlogDetails = () => {
                                             <div className="mb-2">
                                                 <h2 className="text-base sm:text-xl lg:text-2xl font-bold text-gray-800">{title}</h2>
                                             </div>
-                                            <p className="font-normal text-base mb-4 text-black w-[98%]"> {shortDetails}</p>
+                                            <p className="font-normal text-sm md:text-base mb-4 text-black w-[98%]"> {shortDetails}</p>
 
 
                                             <div className=" mb-1">
@@ -121,7 +121,7 @@ const BlogDetails = () => {
 
 
 
-                                            <p className=" font-normal text-base rounded-t-sm rounded-b-lg text-black w-[90%]"> {longDetails}</p>
+                                            <p className=" font-normal text-sm md:text-base text-black w-[90%]"> {longDetails}</p>
 
 
 
@@ -163,7 +163,7 @@ const BlogDetails = () => {
                                 <div className='w-full mx-auto bg-slate-50 mt-5 rounded-xl'>
 
                                     <label className="label">
-                                        <span className="label-text font-bold text-xl ml-4">Leave a Comment</span>
+                                        <span className="label-text font-bold text-xl md:text-2xl ml-4">Leave a Comment</span>
                                     </label>
                                     {
                                         (user?.email === bloggerEmail) ?
@@ -173,7 +173,7 @@ const BlogDetails = () => {
                                     }
 
                                     <div className='my-2'>
-                                        <h2 className='text-2xl ml-4 mt-8 border-b-2 w-[80%] font-bold text-black'>All Comments </h2>
+                                        <h2 className='text-xl md:text-2xl ml-4 mt-8 border-b-2 w-[80%] font-bold text-black'>All Comments </h2>
                                         {/* <hr /> */}
 
                                         <AllComments key={id} id={id} commentsUpdated={commentsUpdated}></AllComments>

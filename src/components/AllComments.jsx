@@ -45,7 +45,7 @@ const AllComments = ({ id, commentsUpdated }) => {
                     ) : (
                         commentData.map((data, index) => (
                             <LazyLoad key={index} height={200} once debounce={500} >
-                                <div className="flex flex-col p-6 gap-2 mb-3 my-3 border border-xl bg-black text-white rounded-xl ">
+                                <div className="flex flex-col p-6 gap-2 mb-3 my-3 border border-xl bg-black text-white rounded-lg ">
                                     <div className='flex gap-2'>
                                         <img src={data.commentOwnerImg} alt="User Avatar" className="w-8 h-8 rounded-full border-2" />
                                         <p className="font-semibold text-sm sm:text-base">{data.commentOwnerName}</p>
