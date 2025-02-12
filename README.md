@@ -1,5 +1,5 @@
 # Blog Platform 
-![Banner Image](./public/Blogg.PNG)
+![Banner Image](./public/blogHome.PNG)
 
 ## 📊  Project Overview
 The **Blog** Website Development Project aims to create a modern, responsive blog platform using React and Firebase. This project focuses on building dynamic web pages, user authentication, and an interactive blog experience. Front-end developers will collaborate with designers and back-end developers to bring mockups to life, ensuring a smooth, optimized experience across devices. The project also includes creating features such as user login, blog creation, wishlist management, and the ability to comment on blogs.
