@@ -5,7 +5,7 @@ import Card from '../components/Card';
 import axios from 'axios';
 import LazyLoad from 'react-lazyload';
 import Skeleton from 'react-loading-skeleton';
-import { AuthProviderContext } from '../Provider/AuthProvider';
+// import { AuthProviderContext } from '../Provider/AuthProvider';
 
 const AllBlogs = () => {
     // const allBlogs = useLoaderData();
@@ -14,13 +14,15 @@ const AllBlogs = () => {
     const [category, setCategory] = useState('');
     // const { loading } = useContext(AuthProviderContext)
     const [isLoading, setIsLoading] = useState(true);
+    const [sort, setSort] = useState('');
 
     useEffect(() => {
       const fetchAllBlogs = async () => {
         setIsLoading(true);
+        // console.log(sort);
         try {
             const { data } = await axios.get(
-                `https://assignment-11-server-one-kohl.vercel.app/blogs?category=${category}&search=${search}`
+                `https://assignment-11-server-one-kohl.vercel.app/blogs?category=${category}&search=${search}&sort=${sort}`
               )
               setBlogs(data)
         }
@@ -32,7 +34,7 @@ const AllBlogs = () => {
        
       };
       fetchAllBlogs()
-    }, [category, search])
+    }, [category, search,sort])
 
     
 
@@ -51,7 +53,7 @@ const AllBlogs = () => {
         <div className='dark:bg-gray-700 dark:text-white'>
             <div className='container w-[90%] mx-auto py-10 '>
             {/* Search and Category Filter */}
-            <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-y-0 items-start sm:items-center justify-between mt-10 mb-12">
+            <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-y-0 items-start sm:items-center justify-between mt-10 mb-4">
                 <input
                     type="text"
                     placeholder="Search by title"
@@ -70,6 +72,17 @@ const AllBlogs = () => {
                     <option value="Travel">Travel</option>
                     <option value="Inspiration">Inspiration</option>
 
+                </select>
+            </div>
+            <div className='mb-12'>
+            <select
+                    value={sort}
+                    id={sort}
+                    onChange={(e) => setSort(e.target.value)}
+                    className="p-2 border"
+                >
+                    <option value="">Sort By</option>
+                    <option value="alphabetical">Blog Name(alphabetical)</option>
                 </select>
             </div>
 

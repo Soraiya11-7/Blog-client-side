@@ -11,7 +11,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const Card = ({ blog }) => {
     const { _id, title, category, shortDetails, coverImage, bloggerName, userLogo } = blog || {};
-    console.log(title);
+    // console.log(title);
     const location = useLocation();
     // console.log(location);
     const navigate = useNavigate();
