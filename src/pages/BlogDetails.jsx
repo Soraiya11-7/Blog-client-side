@@ -72,7 +72,7 @@ const BlogDetails = () => {
 
 
     return (
-        <div className='dark:bg-gray-700 dark:text-white'>
+        <div className='dark:bg-gray-950 dark:text-white'>
             <div className='container w-[90%] mx-auto'>
                 <div className="  py-10">
                     {/* Page Title */}

@@ -81,7 +81,7 @@ const AddBlog = () => {
     };
 
     return (
-        <div className='dark:bg-gray-700 dark:text-white'>
+        <div className='dark:bg-gray-950 dark:text-white'>
             <div className=" py-12 container w-[90%] mx-auto ">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-14">Add a New Blog</h2>
             {/* <h3 className='text-sm sm:text-lg  text-center mb-10'> Submit detailed reviews for your favorite games effortlessly</h3> */}

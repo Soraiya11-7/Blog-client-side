@@ -99,20 +99,20 @@ const Login = () => {
     return (
 
         <div className=" container w-[90%] mx-auto flex justify-center py-8 items-center  ">
-            <div className="rounded-lg  w-[90%] sm:w-[60%] md:w-[50%] lg:w-[35%] mx-auto shadow-2xl p-1 sm:p-2 bg-white z-10 border border-black">
+            <div className="rounded-lg  w-[90%] sm:w-[60%] md:w-[50%] lg:w-[35%] mx-auto shadow-2xl p-1 sm:p-2 bg-white dark:bg-gray-900 dark:text-white z-10 border border-black">
                 <h1 className="text-xl sm:text-3xl font-bold text-center mt-3">Login now!</h1>
                 <form onSubmit={handleLogin} className="card-body ">
                     <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Email</span>
+                        <label className="label ">
+                            <span className="label-text dark:text-white">Email</span>
                         </label>
-                        <input ref={emailRef} type="email" placeholder="email" name='email' className="input input-bordered" required />
+                        <input ref={emailRef} type="email" placeholder="email" name='email' className="input input-bordered dark:bg-gray-800" required />
                     </div>
                     <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
+                        <label className="label ">
+                            <span className="label-text dark:text-white">Password</span>
                         </label>
-                        <input type="password" placeholder="password" name='password' className="input input-bordered" required />
+                        <input type="password" placeholder="password" name='password' className="input input-bordered dark:bg-gray-800" required />
                         {/* {
                             error && <label className="label text-red-600 text-xs">
                                 {error}
@@ -125,15 +125,15 @@ const Login = () => {
                     </div>
                 </form>
                 <div className="flex items-center mb-4 w-[80%] mx-auto">
-                    <div className="flex-grow border-t-2 border-black"></div>
+                    <div className="flex-grow border-t-2 border-black dark:border-gray-400"></div>
                     <span className="mx-4 text-gray-500 font-medium text-sm sm:text-lg">OR</span>
-                    <div className="flex-grow border-t-2 border-black"></div>
+                    <div className="flex-grow border-t-2 border-black dark:border-gray-400"></div>
                 </div>
                 <div className='flex justify-center items-center mb-3'>
                     <button onClick={handleLoginWithGoogle} className='p-1 sm:p-2 flex items-center gap-1 rounded-lg border text-base sm:text-lg hover:border-sky-500'><FcGoogle className='text-base sm:text-lg'></FcGoogle> Login with Google</button>
                 </div>
                 {/* <ToastContainer /> */}
-                <h2 className='text-sm sm:text-base text-center mb-3'>New to this website? <Link to='/auth/register' className='text-blue-500'>Create an account</Link></h2>
+                <h2 className='text-sm sm:text-base text-center mb-3'>New to this website? <Link to='/auth/register' className='text-blue-500 dark:text-sky-400'>Create an account</Link></h2>
             </div>
         </div>
 

@@ -85,7 +85,7 @@ const WishList = () => {
 
 
   return (
-    <div className="dark:bg-gray-700 dark:text-white">
+    <div className="dark:bg-gray-950 dark:text-white">
       <div className="container w-[90%] mx-auto py-10">
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-14">My wishlist</h2>
       {isLoading ? (<div className="flex items-center h-screen justify-center">

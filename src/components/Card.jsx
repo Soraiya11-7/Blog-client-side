@@ -66,22 +66,22 @@ const Card = ({ blog }) => {
 
     return (
         <div className="w-full mx-auto flex justify-center items-center " >
-            <div className="shadow-xl w-full h-full rounded-lg bg-white overflow-hidden ">
+             <div className="shadow-xl w-full h-full rounded-lg bg-white  overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                 {/* Header.................... */}
 
                 <div className="h-52 w-full mx-auto shadow-xl rounded-t-lg ">
                     <img src={coverImage} className="h-full w-full object-cover overflow-hidden rounded-t-lg" alt="coverImage" />
                 </div>
 
-                <div className=" bg-white pb-3 text-left w-full">
+                <div className=" bg-white dark:bg-gray-900 pb-3 text-left w-full">
                     {/* Card Content...................... */}
-                    <div className="relative bg-white p-2 w-[92%] text-left mx-auto shadow-xl rounded-b-lg h-auto sm:min-h-[200px] flex flex-col sm:flex-grow   ">
-                        <p className="text-sm text-sky-600 font-bold uppercase mb-2 ">{category}</p>
-                        <h3 className="text-base md:text-lg font-semibold h-auto text-black sm:min-h-[55px]  sm:flex-grow ">{title}</h3>
+                    <div className="relative bg-white dark:bg-gray-800 p-2 w-[92%] text-left mx-auto shadow-xl rounded-b-lg h-auto sm:min-h-[200px] flex flex-col sm:flex-grow   ">
+                        <p className="text-sm text-sky-600 dark:text-sky-400 font-bold uppercase mb-2 ">{category}</p>
+                        <h3 className="text-base md:text-lg font-semibold h-auto text-black dark:text-white sm:min-h-[55px]  sm:flex-grow ">{title}</h3>
 
 
                         <div className="mt-2 flex flex-col sm:flex-grow min-h-[120px] sm:min-h-[200px]   ">
-                            <p className="text-gray-600  text-sm h-auto sm:min-h-[50px]  sm:flex-grow mb-2 ">
+                            <p className="text-gray-600 dark:text-gray-300  text-sm h-auto sm:min-h-[50px]  sm:flex-grow mb-2 ">
                                 <span>{shortDetails}</span>
                             </p>
                             <p className="text-xs sm:text-sm font-semibold text-gray-800 mb-2 ">By {bloggerName}</p>

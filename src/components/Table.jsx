@@ -46,7 +46,7 @@ const Table = ({ blogs }) => {
         <table className="table-auto w-full border-collapse border text-black bg-white border-black">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id} className="bg-black text-white">
+              <tr key={headerGroup.id} className="bg-black dark:bg-gray-900 text-white">
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}

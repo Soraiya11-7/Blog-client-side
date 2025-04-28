@@ -152,40 +152,40 @@ const Registration = () => {
     return (
         <div className="container w-[90%] mx-auto py-10 flex justify-center items-center">
 
-            <div className="rounded-lg w-[90%] sm:w-[60%] md:w-[50%] lg:w-[35%] mx-auto shadow-2xl p-1 sm:p-2 bg-white z-10 border border-black ">
+            <div className="rounded-lg w-[90%] sm:w-[60%] md:w-[50%] lg:w-[35%] mx-auto shadow-2xl p-1 sm:p-2 bg-white z-10 border border-black dark:bg-gray-900 dark:text-white ">
                 <h1 className="text-xl sm:text-3xl font-bold mt-3 text-center">Register now!</h1>
                 <form onSubmit={handleRegistration} className="card-body">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text dark:text-white">Name</span>
                         </label>
-                        <input type="text" placeholder="name" name='name' className="input input-bordered" required />
+                        <input type="text" placeholder="name" name='name' className="input input-bordered dark:bg-gray-800" required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Photo-URL</span>
+                            <span className="label-text dark:text-white">Photo-URL</span>
                         </label>
-                        <input type="text" placeholder="Photo url" name='image' className="input input-bordered" required />
+                        <input type="text" placeholder="Photo url" name='image' className="input input-bordered dark:bg-gray-800" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text dark:text-white">Email</span>
                         </label>
-                        <input type="email" placeholder="email" name='email' className="input input-bordered" required />
+                        <input type="email" placeholder="email" name='email' className="input input-bordered dark:bg-gray-800" required />
                     </div>
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text dark:text-white">Password</span>
                         </label>
 
                         <input
                             type={showSecretKey ? 'text' : 'password'}
                             placeholder="password"
                             name="password"
-                            className="input input-bordered" required />
+                            className="input input-bordered dark:bg-gray-800" required />
 
-                        <button type="button" onClick={() => setShowSecretKey(!showSecretKey)} className="absolute btn btn-xs top-12 right-2">
+                        <button type="button" onClick={() => setShowSecretKey(!showSecretKey)} className="absolute btn btn-xs top-12 right-2 dark:bg-gray-600 dark:border-none dark:text-white">
                             {
                                 showSecretKey ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                             }
@@ -204,9 +204,9 @@ const Registration = () => {
                     </div>
                 </form>
                 <div className="flex items-center mb-4 w-[80%] mx-auto">
-                    <div className="flex-grow border-t-2 border-black"></div>
+                    <div className="flex-grow border-t-2 border-black dark:border-gray-400"></div>
                     <span className="mx-4 text-gray-500 font-medium text-sm sm:text-lg">OR</span>
-                    <div className="flex-grow border-t-2 border-black"></div>
+                    <div className="flex-grow border-t-2 border-black dark:border-gray-400"></div>
                 </div>
 
                 <div className='flex justify-center items-center mb-3'>
@@ -214,7 +214,7 @@ const Registration = () => {
                 </div>
                 {/* <ToastContainer /> */}
 
-                <h2 className='mb-3 text-center'>You have an account? <Link className='text-blue-400' to='/auth/login'>Login Now</Link></h2>
+                <h2 className='mb-3 text-center'>You have an account? <Link className='text-blue-400 dark:text-sky-400' to='/auth/login'>Login Now</Link></h2>
             </div>
         </div>
 
