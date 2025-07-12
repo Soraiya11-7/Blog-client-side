@@ -65,7 +65,7 @@ const Card2 = ({ blog }) => {
 
     return (
         <div className="w-full mx-auto flex justify-center items-center " data-aos="flip-left"
-        data-aos-easing="ease-out-cubic">
+        data-aos-easing="ease-out-cubic"  data-aos-once="true">
              <div className="shadow-xl w-full h-full rounded-lg bg-white overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                 {/* Header.................... */}
 

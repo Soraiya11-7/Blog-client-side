@@ -15,7 +15,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="py-14 border-2 border-b-0 rounded-b-none border-sky-500 bg-white dark:bg-gray-900 container w-[90%] mx-auto rounded-lg">
+    <div className="py-14 border-4 border-b-0 rounded-b-none border-sky-300 bg-slate-100 shadow-xl dark:bg-gray-900 container w-[90%] mx-auto rounded-lg">
       <div className="max-w-lg mx-auto text-center">
         <h2 className="text-xl sm:text-2xl text-dark md:text-3xl text-sky-500 font-bold mb-2">
           Subscribe to Our Newsletter

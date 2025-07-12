@@ -23,11 +23,11 @@ const ContactSection = () => {
   }
 
   return (
-    <div className=" text-center py-12 my-2 px-2 md:px-4  w-[90%] mx-auto">
+    <div className=" text-center py-16 my-2 px-2 md:px-4  w-[90%] mx-auto">
       {!showContactForm ? (
-        <div className="w-[90%] md:w-[80%] bg-white  mx-auto py-16 border border-sky-600 dark:bg-sky-500  dark:text-white rounded-lg shadow-lg">
+        <div className="w-[90%] md:w-[80%] bg-gradient-to-l from-sky-300 dark:from-sky-400 to-gray-50  mx-auto py-20 border dark:to-gray-800  dark:text-white rounded-lg shadow-xl hover:translate-y-[-5px] transition-all duration-300">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-sky-500 dark:text-white">Let's Talk!</h2>
-          <p className="text-sm sm:text-base md:text-lg mb-6 text-black">
+          <p className="text-sm sm:text-base md:text-lg mb-6 text-black dark:text-gray-300">
             Want to collaborate? We would love to hear from you.
           </p>
           <button

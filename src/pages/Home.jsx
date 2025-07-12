@@ -8,7 +8,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import ContactForm from '../components/ContactForm';
-
 const Home = () => {
     useEffect(() => {
         AOS.init({
@@ -19,6 +18,7 @@ const Home = () => {
     return (
         <div className='w-full mx-auto dark:shadow-xl dark:shadow-black dark:bg-gray-950  text-black dark:text-white'>
             <Banner></Banner>
+            
             <RecentBlogs></RecentBlogs>
            <ExtraOne></ExtraOne>
             <ContactForm></ContactForm>

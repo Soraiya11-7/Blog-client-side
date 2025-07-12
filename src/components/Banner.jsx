@@ -5,7 +5,7 @@ const Banner = () => {
 
   return (
     <div className="" >
-      <div className="rounded-b-lg w-full overflow-hidden h-[230px] sm:h-[320px] md:h-[420px] relative ">
+      <div className="rounded-b-lg w-full overflow-hidden h-[230px] sm:h-[320px] md:h-[430px] relative ">
         {/* Background Image */}
         <img
           src={img3}
